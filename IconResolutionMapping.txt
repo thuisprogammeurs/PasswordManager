@@ -1,0 +1,11 @@
+36x36 for low-density (LDPI)
+
+48x48 for medium-density (MDPI)
+
+72x72 for high-density (HDPI)
+
+96x96 for extra high-density (XHDPI)
+
+180x180 for extra extra high-density (XXHDPI)
+
+192x192 for extra extra extra high-density (XXXHDPI)

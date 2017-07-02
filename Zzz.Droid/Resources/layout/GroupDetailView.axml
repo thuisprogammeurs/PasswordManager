@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <TextView
+      android:text="Name:"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/lblName" />
+  <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txtName"
+      local:MvxBind="Text SelectedGroup.Name" />
+  <TextView
+      android:text="Description:"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/lblDescription" />
+  <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txtPassword"
+      local:MvxBind="Text SelectedGroup.Description" />
+
+  <Button
+      android:id="@+id/btnSave"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="20dp"
+      android:text="Save"
+      local:MvxBind="Click SaveCommand" />
+  <Button
+      android:id="@+id/btnCancel"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="20dp"
+      android:text="Cancel"
+      local:MvxBind="Click CancelCommand" />
+</LinearLayout>

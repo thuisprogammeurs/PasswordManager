@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zzz.Core", "Zzz.Core\Zzz.Core.csproj", "{340B7ACF-66A5-4EC1-92C1-DF49AC063944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zzz.Droid", "Zzz.Droid\Zzz.Droid.csproj", "{008BCDEC-282F-44E1-BB45-81E6FA7AF8DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zzz.Localization", "Zzz.Localization\Zzz.Localization.csproj", "{A7C6FE16-31E8-40B1-A945-83F506879506}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Info", "Info", "{E46E22C1-132B-4946-9290-087C1F29EB90}"
+	ProjectSection(SolutionItems) = preProject
+		IconResolutionMapping.txt = IconResolutionMapping.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{340B7ACF-66A5-4EC1-92C1-DF49AC063944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340B7ACF-66A5-4EC1-92C1-DF49AC063944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340B7ACF-66A5-4EC1-92C1-DF49AC063944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340B7ACF-66A5-4EC1-92C1-DF49AC063944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008BCDEC-282F-44E1-BB45-81E6FA7AF8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008BCDEC-282F-44E1-BB45-81E6FA7AF8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008BCDEC-282F-44E1-BB45-81E6FA7AF8DA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{008BCDEC-282F-44E1-BB45-81E6FA7AF8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008BCDEC-282F-44E1-BB45-81E6FA7AF8DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008BCDEC-282F-44E1-BB45-81E6FA7AF8DA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A7C6FE16-31E8-40B1-A945-83F506879506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C6FE16-31E8-40B1-A945-83F506879506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C6FE16-31E8-40B1-A945-83F506879506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C6FE16-31E8-40B1-A945-83F506879506}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
