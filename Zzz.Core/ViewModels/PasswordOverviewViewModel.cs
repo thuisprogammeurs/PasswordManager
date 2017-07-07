@@ -94,5 +94,13 @@ namespace Zzz.Core.ViewModels
                 });
             }
         }
+
+        public IMvxCommand AddPasswordCommand
+        {
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<PasswordDetailViewModel>());
+            }
+        }
     }
 }

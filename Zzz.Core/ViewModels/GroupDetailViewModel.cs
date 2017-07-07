@@ -32,7 +32,7 @@ namespace Zzz.Core.ViewModels
             _passwordDataService = passwordDataService;
         }
 
-        public void Init(string groupId)
+        public void Init(string groupId = "")
         {
             _groupId = groupId;
 

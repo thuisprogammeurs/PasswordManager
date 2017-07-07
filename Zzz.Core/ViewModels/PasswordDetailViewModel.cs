@@ -55,7 +55,7 @@ namespace Zzz.Core.ViewModels
             _passwordDataService = passwordDataService;
         }
 
-        public void Init(string passwordId)
+        public void Init(string passwordId = "")
         {
             _passwordId = passwordId;
 
@@ -74,7 +74,10 @@ namespace Zzz.Core.ViewModels
 
         protected override async Task InitializeAsync()
         {
-            SelectedPassword = await _passwordDataService.GetPasswordById(_passwordId);
+            if (_passwordId != string.Empty)
+            {
+                SelectedPassword = await _passwordDataService.GetPasswordById(_passwordId);
+            }
 
             await LoadGroups();
 
@@ -101,7 +104,8 @@ namespace Zzz.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<PasswordOverviewViewModel>());
+                return new MvxCommand(() => Close(this));
+                //return new MvxCommand(() => ShowViewModel<PasswordOverviewViewModel>());
             }
         }
 

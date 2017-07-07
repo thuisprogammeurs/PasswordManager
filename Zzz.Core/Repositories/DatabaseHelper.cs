@@ -46,6 +46,11 @@ namespace Zzz.Core.Repositories
         {
             try
             {
+                if (password.Id == null)
+                {
+                    password.Id = Guid.NewGuid().ToString(); 
+                }
+
                 realm.Write(() =>
                 {
                     realm.Add(password, true);
@@ -81,6 +86,11 @@ namespace Zzz.Core.Repositories
         {
             try
             {
+                if (group.Id == null)
+                {
+                    group.Id = Guid.NewGuid().ToString();
+                }
+
                 realm.Write(() =>
                 {
                     realm.Add(group, true);

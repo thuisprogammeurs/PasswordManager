@@ -24,17 +24,23 @@ namespace Zzz.Droid.Views
             PasswordDetailViewModel passwordDetailViewModel = (PasswordDetailViewModel)ViewModel;
             if (passwordDetailViewModel.SelectedPassword != null)
             {
-                var groupSpinner = passwordDetailView.FindViewById<MvxAppCompatSpinner>(Resource.Id.drpGroup);
-                int itemPosition = 0;
-                string selectedGroupId = passwordDetailViewModel.SelectedGroup.Id;
-                foreach (Group group in passwordDetailViewModel.AllGroups)
+                if (passwordDetailViewModel.SelectedPassword.Id != null)
                 {
-                    if (group.Id == selectedGroupId)
+                    var groupSpinner = passwordDetailView.FindViewById<MvxAppCompatSpinner>(Resource.Id.drpGroup);
+                    int itemPosition = 0;
+                    string selectedGroupId = passwordDetailViewModel.SelectedGroup.Id;
+                    if (selectedGroupId != null)
                     {
-                        groupSpinner.SetSelection(itemPosition);
-                        break;
+                        foreach (Group group in passwordDetailViewModel.AllGroups)
+                        {
+                            if (group.Id == selectedGroupId)
+                            {
+                                groupSpinner.SetSelection(itemPosition);
+                                break;
+                            }
+                            itemPosition++;
+                        }
                     }
-                    itemPosition++;
                 }
             }
 

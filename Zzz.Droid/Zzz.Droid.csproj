@@ -266,6 +266,7 @@
     <AndroidResource Include="Resources\drawable\drawer_shadow_dark.9.png" />
     <AndroidResource Include="Resources\drawable\drawer_shadow_light.9.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\drawable\round_button_add.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

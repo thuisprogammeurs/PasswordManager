@@ -1,4 +1,5 @@
-﻿using MvvmCross.Plugins.Messenger;
+﻿using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 using Zzz.Core.Contracts.ViewModels;
 
 namespace Zzz.Core.ViewModels
@@ -7,6 +8,14 @@ namespace Zzz.Core.ViewModels
     {
         public PasswordGeneratorViewModel(IMvxMessenger messenger) : base(messenger)
         {
+        }
+
+        public IMvxCommand CloseCommand
+        {
+            get
+            {
+                return new MvxCommand(() => Close(this));
+            }
         }
     }
 }

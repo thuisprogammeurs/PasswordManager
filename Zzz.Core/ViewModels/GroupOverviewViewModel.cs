@@ -68,5 +68,13 @@ namespace Zzz.Core.ViewModels
                 });
             }
         }
+
+        public IMvxCommand AddGroupCommand
+        {
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<GroupDetailViewModel>());
+            }
+        }
     }
 }
