@@ -10,14 +10,18 @@ namespace Zzz.Core.Contracts.Repositories
 
         Task<Password> GetPasswordById(string passwordId);
 
+        Task<Password> SavePassword(Password password);
+
+        Task<Password> DeletePassword(Password password);
+
         Task<List<Group>> GetAllGroups();
 
         Task<Group> GetGroupById(string groupId);
 
         Task<Group> GetGroupByName(string groupName);
 
-        Task<Password> SavePassword(Password password);
-
         Task<Group> SaveGroup(Group group);
+
+        Task<Group> DeleteGroup(Group group);
     }
 }

@@ -109,9 +109,23 @@ namespace Zzz.Core.ViewModels
             }
         }
 
+        public IMvxCommand DeleteCommand
+        {
+            get
+            {
+                return new MvxCommand(DeletePassword);
+            }
+        }
+
         private async void SavePassword()
         {
             Password password = await _passwordDataService.SavePassword(SelectedPassword);
+            ShowViewModel<PasswordOverviewViewModel>(new { reloadData = true });
+        }
+
+        private async void DeletePassword()
+        {
+            Password password = await _passwordDataService.DeletePassword(SelectedPassword);
             ShowViewModel<PasswordOverviewViewModel>(new { reloadData = true });
         }
     }

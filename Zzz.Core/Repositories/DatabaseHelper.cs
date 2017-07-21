@@ -61,6 +61,23 @@ namespace Zzz.Core.Repositories
                 throw ex;
             }
         }
+
+        public void DeletePassword(PasswordOrm password)
+        {
+            try
+            {
+                PasswordOrm passwordToBeDeleted = GetPassword(password.Id);
+                using (var trans = realm.BeginWrite())
+                {
+                    realm.Remove(passwordToBeDeleted);
+                    trans.Commit();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Group
@@ -95,6 +112,28 @@ namespace Zzz.Core.Repositories
                 {
                     realm.Add(group, true);
                 });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteGroup(GroupOrm group)
+        {
+            try
+            {
+                GroupOrm groupToBeDeleted = GetGroup(group.Id);
+                using (var trans = realm.BeginWrite())
+                {
+                    realm.Remove(groupToBeDeleted);
+                    trans.Commit();
+                }
+
+                //realm.Write(() =>
+                //{
+                //    realm.Remove(group);
+                //});
             }
             catch (Exception ex)
             {

@@ -65,13 +65,29 @@ namespace Zzz.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<GroupOverviewViewModel>());
+                return new MvxCommand(() => Close(this));
+                //return new MvxCommand(() => ShowViewModel<GroupOverviewViewModel>());
+            }
+        }
+
+        public IMvxCommand DeleteCommand
+        {
+            get
+            {
+                return new MvxCommand(DeleteGroup);
             }
         }
 
         private async void SaveGroup()
         {
             Group group = await _passwordDataService.SaveGroup(SelectedGroup);
+            ShowViewModel<GroupOverviewViewModel>(new { reloadData = true });
+            //Close(this);
+        }
+
+        private async void DeleteGroup()
+        {
+            Group group = await _passwordDataService.DeleteGroup(SelectedGroup);
             ShowViewModel<GroupOverviewViewModel>(new { reloadData = true });
         }
     }

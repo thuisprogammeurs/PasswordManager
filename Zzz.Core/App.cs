@@ -38,6 +38,7 @@ namespace Zzz.Core
         {
             Mapper.Register<PasswordOrm, Password>();
             Mapper.Register<GroupOrm, Group>();
+            Mapper.Register<PasswordGeneratorOrm, PasswordGenerator>();
         }
     }
 }

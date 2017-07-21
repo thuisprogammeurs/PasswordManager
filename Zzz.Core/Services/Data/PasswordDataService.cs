@@ -25,6 +25,16 @@ namespace Zzz.Core.Services.Data
             return await _passwordRepository.GetPasswordById(passwordId);
         }
 
+        public async Task<Password> SavePassword(Password password)
+        {
+            return await _passwordRepository.SavePassword(password);
+        }
+
+        public Task<Password> DeletePassword(Password password)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual async Task<List<Group>> GetAllGroups()
         {
             return await _passwordRepository.GetAllGroups();
@@ -40,14 +50,14 @@ namespace Zzz.Core.Services.Data
             return await _passwordRepository.GetGroupByName(groupName);
         }
 
-        public async Task<Password> SavePassword(Password password)
-        {
-            return await _passwordRepository.SavePassword(password);
-        }
-
         public async Task<Group> SaveGroup(Group group)
         {
             return await _passwordRepository.SaveGroup(group);
+        }
+
+        public async Task<Group> DeleteGroup(Group group)
+        {
+            return await _passwordRepository.DeleteGroup(group);
         }
     }
 }

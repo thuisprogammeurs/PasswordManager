@@ -39,6 +39,22 @@ namespace Zzz.Core.Repositories
             return await Task.FromResult(result);
         }
 
+        public async Task<Password> SavePassword(Password password)
+        {
+            PasswordOrm passwordOrm = password.Map<Password, PasswordOrm>();
+            dbHelper.UpdatePassword(passwordOrm);
+
+            return await Task.FromResult(password);
+        }
+
+        public async Task<Password> DeletePassword(Password password)
+        {
+            PasswordOrm passwordOrm = password.Map<Password, PasswordOrm>();
+            dbHelper.DeletePassword(passwordOrm);
+
+            return await Task.FromResult(password);
+        }
+
         public async Task<Group> GetGroupById(string groupId)
         {
             GroupOrm groupOrm = dbHelper.GetGroup(groupId);
@@ -63,18 +79,18 @@ namespace Zzz.Core.Repositories
             return await Task.FromResult(result);
         }
 
-        public async Task<Password> SavePassword(Password password)
-        {
-            PasswordOrm passwordOrm = password.Map<Password, PasswordOrm>();
-            dbHelper.UpdatePassword(passwordOrm);
-
-            return await Task.FromResult(password);
-        }
-
         public async Task<Group> SaveGroup(Group group)
         {
             GroupOrm groupOrm = group.Map<Group, GroupOrm>();
             dbHelper.UpdateGroup(groupOrm);
+
+            return await Task.FromResult(group);
+        }
+
+        public async Task<Group> DeleteGroup(Group group)
+        {
+            GroupOrm groupOrm = group.Map<Group, GroupOrm>();
+            dbHelper.DeleteGroup(groupOrm);
 
             return await Task.FromResult(group);
         }
