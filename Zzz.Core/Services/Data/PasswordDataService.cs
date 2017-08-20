@@ -30,9 +30,9 @@ namespace Zzz.Core.Services.Data
             return await _passwordRepository.SavePassword(password);
         }
 
-        public Task<Password> DeletePassword(Password password)
+        public virtual async Task<Password> DeletePassword(Password password)
         {
-            throw new NotImplementedException();
+            return await _passwordRepository.DeletePassword(password);
         }
 
         public virtual async Task<List<Group>> GetAllGroups()

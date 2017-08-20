@@ -6,12 +6,15 @@ using Zzz.Core.Contracts.Services;
 using Zzz.Core.Contracts.ViewModels;
 using Zzz.Core.Models;
 using Zzz.Core.Extensions;
+using Zzz.Core.Messages;
+using MvvmCross.Core.Navigation;
 
 namespace Zzz.Core.ViewModels
 {
     public class PasswordDetailViewModel : BaseViewModel, IPasswordDetailViewModel
     {
         private readonly IPasswordDataService _passwordDataService;
+        private readonly IMvxNavigationService _navigationService;
         private Password _selectedPassword;
         private ObservableCollection<Group> _allGroups;
         private string _passwordId;
@@ -22,6 +25,7 @@ namespace Zzz.Core.ViewModels
             set
             {
                 _selectedPassword = value;
+
                 RaisePropertyChanged(() => SelectedPassword);
             }
         }
@@ -49,11 +53,24 @@ namespace Zzz.Core.ViewModels
             }
         }
 
-        public PasswordDetailViewModel(IMvxMessenger messenger, IPasswordDataService passwordDataService) : base(messenger)
+        public PasswordDetailViewModel(IMvxMessenger messenger, IPasswordDataService passwordDataService, IMvxNavigationService navigation) : base(messenger)
         {
-            //_passwordDataService = new PasswordDataService(new PasswordRepository());
             _passwordDataService = passwordDataService;
+            _navigationService = navigation;
+
+            //InitializeMessenger();
         }
+
+        //private void InitializeMessenger()
+        //{
+        //    Messenger.Subscribe<PasswordCopiedMessage>(OnPasswordCopiedMessage);
+        //}
+
+        //private void OnPasswordCopiedMessage(PasswordCopiedMessage message)
+        //{
+        //    SelectedPassword.Description = message.Password;
+        //    RaisePropertyChanged(() => SelectedPassword);
+        //}
 
         public void Init(string passwordId = "")
         {
@@ -117,6 +134,14 @@ namespace Zzz.Core.ViewModels
             }
         }
 
+        public IMvxCommand GeneratePasswordCommand
+        {
+            get
+            {
+                return new MvxCommand(GeneratePassword);
+            }
+        }
+
         private async void SavePassword()
         {
             Password password = await _passwordDataService.SavePassword(SelectedPassword);
@@ -127,6 +152,17 @@ namespace Zzz.Core.ViewModels
         {
             Password password = await _passwordDataService.DeletePassword(SelectedPassword);
             ShowViewModel<PasswordOverviewViewModel>(new { reloadData = true });
+        }
+
+        private async void GeneratePassword()
+        {
+            var result = await _navigationService.Navigate<PasswordGeneratorViewModel, Password, PasswordGenerator>(SelectedPassword);
+
+            if (result != null)
+            {
+                SelectedPassword.Description = result.GeneratedPassword;
+                RaisePropertyChanged(() => SelectedPassword);
+            }
         }
     }
 }

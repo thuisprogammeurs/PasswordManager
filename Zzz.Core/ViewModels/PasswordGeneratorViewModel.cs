@@ -4,17 +4,22 @@ using System.Threading.Tasks;
 using Zzz.Core.Contracts.Services;
 using Zzz.Core.Contracts.ViewModels;
 using Zzz.Core.Models;
+using Zzz.Core.Messages;
+using System;
+using System.Threading;
+using MvvmCross.Platform;
+using MvvmCross.Core.Navigation;
 
 namespace Zzz.Core.ViewModels
 {
-    public class PasswordGeneratorViewModel : BaseViewModel, IPasswordGeneratorViewModel
+    public class PasswordGeneratorViewModel : BaseViewModel<Password, PasswordGenerator>, IPasswordGeneratorViewModel
     {
         private readonly IPasswordDataService _passwordDataService;
         private readonly IPasswordGeneratorService _passwordGeneratorService;
         private int _passwordLength;
         private PasswordGenerator _selectedPasswordGenerator;
 
-        public PasswordGeneratorViewModel(IMvxMessenger messenger, IPasswordDataService passwordDataService, IPasswordGeneratorService passwordGeneratorService) : base(messenger)
+        public PasswordGeneratorViewModel(IMvxMessenger messenger, IMvxNavigationService navigation, IPasswordDataService passwordDataService, IPasswordGeneratorService passwordGeneratorService) : base(messenger, navigation)
         {
             _passwordDataService = passwordDataService;
             _passwordGeneratorService = passwordGeneratorService;
@@ -38,6 +43,8 @@ namespace Zzz.Core.ViewModels
                 _passwordLength = value;
                 SelectedPasswordGenerator.PasswordLength = _passwordLength;
                 RaisePropertyChanged(() => PasswordLength);
+
+                RegeneratePassword();
             }
         }
 
@@ -61,6 +68,8 @@ namespace Zzz.Core.ViewModels
             }
 
             _passwordLength = SelectedPasswordGenerator.PasswordLength;
+
+            RegeneratePassword();
         }
 
         public IMvxCommand RegenerateCommand
@@ -94,6 +103,7 @@ namespace Zzz.Core.ViewModels
 
         private async void SelectPassword()
         {
+            await Close(SelectedPasswordGenerator);
         }
     }
 }
