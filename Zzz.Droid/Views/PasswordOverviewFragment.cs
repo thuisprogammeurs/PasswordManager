@@ -27,5 +27,16 @@ namespace Zzz.Droid.Views
             base.OnViewCreated(view, savedInstanceState);
             (this.Activity as MainActivity).SetCustomTitle("Password Overview");
         }
+
+        public override void OnResume()
+        {
+            ViewModel.Start();
+            base.OnResume();
+        }
+
+        public override void OnStop()
+        {
+            base.OnStop();
+        }
     }
 }

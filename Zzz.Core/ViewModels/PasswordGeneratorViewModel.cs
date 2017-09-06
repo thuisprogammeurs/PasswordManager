@@ -17,6 +17,9 @@ namespace Zzz.Core.ViewModels
         private readonly IPasswordDataService _passwordDataService;
         private readonly IPasswordGeneratorService _passwordGeneratorService;
         private int _passwordLength;
+        private bool _isIncludeCharacter;
+        private bool _isIncludeNumber;
+        private bool _isIncludeSpecialCharacter;
         private PasswordGenerator _selectedPasswordGenerator;
 
         public PasswordGeneratorViewModel(IMvxMessenger messenger, IMvxNavigationService navigation, IPasswordDataService passwordDataService, IPasswordGeneratorService passwordGeneratorService) : base(messenger, navigation)
@@ -43,6 +46,45 @@ namespace Zzz.Core.ViewModels
                 _passwordLength = value;
                 SelectedPasswordGenerator.PasswordLength = _passwordLength;
                 RaisePropertyChanged(() => PasswordLength);
+
+                RegeneratePassword();
+            }
+        }
+
+        public bool IsIncludeCharacter
+        {
+            get { return _isIncludeCharacter; }
+            set
+            {
+                _isIncludeCharacter = value;
+                SelectedPasswordGenerator.IsIncludeCharacter = _isIncludeCharacter;
+                RaisePropertyChanged(() => IsIncludeCharacter);
+
+                RegeneratePassword();
+            }
+        }
+
+        public bool IsIncludeNumber
+        {
+            get { return _isIncludeNumber; }
+            set
+            {
+                _isIncludeNumber = value;
+                SelectedPasswordGenerator.IsIncludeNumber = _isIncludeNumber;
+                RaisePropertyChanged(() => IsIncludeNumber);
+
+                RegeneratePassword();
+            }
+        }
+
+        public bool IsIncludeSpecialCharacter
+        {
+            get { return _isIncludeSpecialCharacter; }
+            set
+            {
+                _isIncludeSpecialCharacter = value;
+                SelectedPasswordGenerator.IsIncludeSpecialCharacter = _isIncludeSpecialCharacter;
+                RaisePropertyChanged(() => IsIncludeSpecialCharacter);
 
                 RegeneratePassword();
             }
