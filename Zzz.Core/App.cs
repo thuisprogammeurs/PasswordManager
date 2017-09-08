@@ -7,6 +7,8 @@ using Zzz.Localization;
 using ExpressMapper;
 using Zzz.Core.Models;
 using Zzz.Core.Models.Orm;
+using Zzz.Core.Services.Login;
+using Zzz.Core.Contracts.Services;
 
 namespace Zzz.Core
 {
@@ -31,7 +33,9 @@ namespace Zzz.Core
 
             MappingRegistration();
 
-            RegisterAppStart(new AppStart());
+            ILoginService _loginService = new LoginService();
+
+            RegisterAppStart(new AppStart(_loginService));
         }
 
         private void MappingRegistration()

@@ -199,6 +199,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\OverviewListAdapter.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
@@ -259,6 +260,9 @@
     <AndroidResource Include="Resources\layout\PasswordGeneratorView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\LoginView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\MainView.axml">
@@ -302,6 +306,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\delete_icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\delete_icon.png" />
     <AndroidResource Include="Resources\drawable\generate_password_icon.png" />
+    <AndroidResource Include="Resources\drawable\login_control.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-ldpi\" />

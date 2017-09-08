@@ -40,6 +40,7 @@
     <Compile Include="Contracts\Repositories\IPasswordRepository.cs" />
     <Compile Include="Contracts\Services\IConnectionService.cs" />
     <Compile Include="Contracts\Services\IDialogService.cs" />
+    <Compile Include="Contracts\Services\ILoginService.cs" />
     <Compile Include="Contracts\Services\IPasswordDataService.cs" />
     <Compile Include="Contracts\Services\IPasswordGeneratorService.cs" />
     <Compile Include="Contracts\ViewModels\IGroupDetailViewModel.cs" />
@@ -69,12 +70,14 @@
     <Compile Include="Services\General\ConnectionService.cs" />
     <Compile Include="Services\Generator\PasswordGeneratorService.cs" />
     <Compile Include="Services\Generator\RandomPassword.cs" />
+    <Compile Include="Services\Login\LoginService.cs" />
     <Compile Include="Utility\MenuOption.cs" />
     <Compile Include="Utility\ResxTextProvider.cs" />
     <Compile Include="Utility\UrlConstants.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GroupDetailViewModel.cs" />
     <Compile Include="ViewModels\GroupOverviewViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\PasswordGeneratorViewModel.cs" />
