@@ -4,6 +4,8 @@ using MvvmCross.Core.ViewModels;
 using Zzz.Core.Contracts.Services;
 using Zzz.Core.Contracts.ViewModels;
 using Zzz.Core.Models;
+using Zzz.Core.Extensions;
+using MvvmValidation;
 
 namespace Zzz.Core.ViewModels
 {
@@ -12,6 +14,7 @@ namespace Zzz.Core.ViewModels
         private readonly IPasswordDataService _passwordDataService;
         private Group _selectedGroup;
         private string _groupId;
+        private ObservableDictionary<string, string> _validationErrors;
 
         public Group SelectedGroup
         {
@@ -22,6 +25,16 @@ namespace Zzz.Core.ViewModels
                 RaisePropertyChanged(() => SelectedGroup);
             }
         }
+
+        public ObservableDictionary<string, string> ValidationErrors
+        {
+            get { return _validationErrors;  }
+            set {
+                _validationErrors = value;
+                RaisePropertyChanged(() => ValidationErrors);
+            }
+        }
+
         public GroupDetailViewModel(IMvxMessenger messenger, IPasswordDataService passwordDataService) : base(messenger)
         {
             //_passwordDataService = new PasswordDataService(new PasswordRepository());
@@ -76,6 +89,11 @@ namespace Zzz.Core.ViewModels
 
         private async void SaveGroup()
         {
+            if (!IsValid())
+            {
+                return;
+            }
+
             Group group = await _passwordDataService.SaveGroup(SelectedGroup);
             ShowViewModel<GroupOverviewViewModel>(new { reloadData = true });
             //Close(this);
@@ -85,6 +103,19 @@ namespace Zzz.Core.ViewModels
         {
             Group group = await _passwordDataService.DeleteGroup(SelectedGroup);
             ShowViewModel<GroupOverviewViewModel>(new { reloadData = true });
+        }
+
+        private bool IsValid()
+        {
+            var validator = new ValidationHelper();
+            validator.AddRequiredRule(() => SelectedGroup.Name, "Name is required.");
+            validator.AddRequiredRule(() => SelectedGroup.Description, "Description is required.");
+
+            var result = validator.ValidateAll();
+
+            ValidationErrors = result.AsObservableDictionary();
+
+            return result.IsValid;
         }
     }
 }

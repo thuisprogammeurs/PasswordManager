@@ -8,6 +8,7 @@ using Zzz.Core.Models;
 using Zzz.Core.Extensions;
 using Zzz.Core.Messages;
 using MvvmCross.Core.Navigation;
+using MvvmValidation;
 
 namespace Zzz.Core.ViewModels
 {
@@ -18,6 +19,7 @@ namespace Zzz.Core.ViewModels
         private Password _selectedPassword;
         private ObservableCollection<Group> _allGroups;
         private string _passwordId;
+        private ObservableDictionary<string, string> _validationErrors;
 
         public Password SelectedPassword
         {
@@ -40,6 +42,16 @@ namespace Zzz.Core.ViewModels
             {
                 SelectedPassword.PasswordGroup = value;
                 RaisePropertyChanged(() => SelectedGroup);
+            }
+        }
+
+        public ObservableDictionary<string, string> ValidationErrors
+        {
+            get { return _validationErrors; }
+            set
+            {
+                _validationErrors = value;
+                RaisePropertyChanged(() => ValidationErrors);
             }
         }
 
@@ -144,6 +156,11 @@ namespace Zzz.Core.ViewModels
 
         private async void SavePassword()
         {
+            if (!IsValid())
+            {
+                return;
+            }
+
             Password password = await _passwordDataService.SavePassword(SelectedPassword);
             ShowViewModel<PasswordOverviewViewModel>(new { reloadData = true });
         }
@@ -164,5 +181,19 @@ namespace Zzz.Core.ViewModels
                 RaisePropertyChanged(() => SelectedPassword);
             }
         }
+        private bool IsValid()
+        {
+            var validator = new ValidationHelper();
+            validator.AddRequiredRule(() => SelectedPassword.Name, "Name is required.");
+            validator.AddRequiredRule(() => SelectedPassword.Description, "Password is required.");
+            validator.AddRequiredRule(() => SelectedPassword.AccessAddress, "URL / Access address is required.");
+
+            var result = validator.ValidateAll();
+
+            ValidationErrors = result.AsObservableDictionary();
+
+            return result.IsValid;
+        }
+
     }
 }

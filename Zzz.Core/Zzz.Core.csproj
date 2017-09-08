@@ -51,6 +51,8 @@
     <Compile Include="Contracts\ViewModels\IPasswordOverviewViewModel.cs" />
     <Compile Include="Contracts\ViewModels\ISearchPasswordViewModel.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\ObservableDictionary.cs" />
+    <Compile Include="Extensions\ValidationResultExtension.cs" />
     <Compile Include="Messages\PasswordCopiedMessage.cs" />
     <Compile Include="Models\App\MenuItem.cs" />
     <Compile Include="Models\App\SearchParameters.cs" />
@@ -109,6 +111,9 @@
     </Reference>
     <Reference Include="MvvmCross.Plugins.Messenger, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Plugin.Messenger.4.4.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmValidation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=113792d2053ac461, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmValidation.3.0.0\lib\netstandard1.0\MvvmValidation.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>

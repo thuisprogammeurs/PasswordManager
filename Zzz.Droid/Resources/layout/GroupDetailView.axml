@@ -14,7 +14,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/txtName"
-      local:MvxBind="Text SelectedGroup.Name" />
+      local:MvxBind="Text SelectedGroup.Name; Error ValidationErrors['Name']" />
   <TextView
       android:text="Description:"
       android:textAppearance="?android:attr/textAppearanceMedium"
@@ -25,7 +25,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/txtPassword"
-      local:MvxBind="Text SelectedGroup.Description" />
+      local:MvxBind="Text SelectedGroup.Description; Error ValidationErrors['Description']" />
 
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
