@@ -31,8 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis />
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>PdbOnly</DebugType>
@@ -266,6 +268,12 @@
     <AndroidResource Include="Resources\layout\LoginView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\menu\toolbar_menu_add.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\toolbar_menu_edit.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\MainView.axml">
@@ -310,11 +318,24 @@
     <AndroidResource Include="Resources\drawable-mdpi\delete_icon.png" />
     <AndroidResource Include="Resources\drawable\generate_password_icon.png" />
     <AndroidResource Include="Resources\drawable\login_control.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_content_cancel.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_content_save.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_content_cancel.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_content_save.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\delete_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_content_cancel.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_content_save.png" />
+    <AndroidResource Include="Resources\drawable\ic_action_content_cancel.png" />
+    <AndroidResource Include="Resources\drawable\ic_action_content_save.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_content_cancel.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_content_delete.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_content_save.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_content_delete.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_content_delete.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_content_delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-ldpi\" />
-    <Folder Include="Resources\drawable-xhdpi\" />
-    <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
