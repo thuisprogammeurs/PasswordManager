@@ -177,7 +177,7 @@ namespace Zzz.Core.ViewModels
 
             if (result != null)
             {
-                SelectedPassword.Description = result.GeneratedPassword;
+                SelectedPassword.Secret = result.GeneratedPassword;
                 RaisePropertyChanged(() => SelectedPassword);
             }
         }
@@ -185,7 +185,7 @@ namespace Zzz.Core.ViewModels
         {
             var validator = new ValidationHelper();
             validator.AddRequiredRule(() => SelectedPassword.Name, "Name is required.");
-            validator.AddRequiredRule(() => SelectedPassword.Description, "Password is required.");
+            validator.AddRequiredRule(() => SelectedPassword.Secret, "Password is required.");
             validator.AddRequiredRule(() => SelectedPassword.AccessAddress, "URL / Access address is required.");
 
             var result = validator.ValidateAll();

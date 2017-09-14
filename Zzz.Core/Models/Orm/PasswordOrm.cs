@@ -9,7 +9,7 @@ namespace Zzz.Core.Models.Orm
         [Required]
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public string Secret { get; set; }
 
         public string AccessAddress { get; set; }
 

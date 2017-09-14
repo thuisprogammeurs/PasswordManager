@@ -169,9 +169,9 @@ namespace Zzz.Core.Repositories
             {
                 realm.Write(() =>
                     {
-                        var outlookPassword = realm.Add(new PasswordOrm { Id = Guid.NewGuid().ToString(), Name = "Outlook.com", Description = "Outlook.com password", PasswordGroup = groupEmail });
-                        var workEmailPassword = realm.Add(new PasswordOrm { Id = Guid.NewGuid().ToString(), Name = "Zzz email", Description = "Zzz email password", PasswordGroup = groupEmail });
-                        var bolDotComPassword = realm.Add(new PasswordOrm { Id = Guid.NewGuid().ToString(), Name = "Bol.com", Description = "Bol.com password", PasswordGroup = groupWebShop });
+                        var outlookPassword = realm.Add(new PasswordOrm { Id = Guid.NewGuid().ToString(), Name = "Outlook", Secret = "T0oMUchS3cR#t", AccessAddress = "www.outlook.com", PasswordGroup = groupEmail });
+                        var workEmailPassword = realm.Add(new PasswordOrm { Id = Guid.NewGuid().ToString(), Name = "Zzz email", Secret = "Cle@n1Ng", AccessAddress = "www.gmail.com", PasswordGroup = groupEmail });
+                        var bolDotComPassword = realm.Add(new PasswordOrm { Id = Guid.NewGuid().ToString(), Name = "Bol.com", Secret = "B0lLYw00D", AccessAddress = "www.bol.com", PasswordGroup = groupWebShop });
                     }
                 );
             }
