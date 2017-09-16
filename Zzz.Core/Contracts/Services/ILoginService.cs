@@ -32,9 +32,20 @@ namespace Zzz.Core.Contracts.Services
         /// <summary>
         /// The login method called with user supplied credentials
         /// </summary>
-        /// <param name="userName">Name of the user.</param>
         /// <param name="password">The users password.</param>
         /// <returns><c>true</c> if the login is successful, <c>false</c> otherwise </returns>
-        bool Login(string userName, string password);
+        bool Login(string password);
+
+        /// <summary>
+        /// Set the master password.
+        /// </summary>
+        /// <param name="password">The master password.</param>
+        void SetMasterPassword(string password);
+
+        /// <summary>
+        /// Check whether it is the first time that the application has been started.
+        /// </summary>
+        /// <returns><c>true</c> if it is the first start, <c>false</c> otherwise</returns>
+        bool IsFirstTime();
     }
 }

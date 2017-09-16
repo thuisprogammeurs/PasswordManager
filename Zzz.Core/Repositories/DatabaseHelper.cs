@@ -142,6 +142,34 @@ namespace Zzz.Core.Repositories
         }
         #endregion
 
+        #region Master password
+        public MasterSecretOrm GetMasterSecret(string name)
+        {
+            MasterSecretOrm password = (MasterSecretOrm)realm.All<MasterSecretOrm>().Where(p => p.Name == name).First();
+            return password;
+        }
+
+        public void UpdateMasterSecret(MasterSecretOrm masterSecretOrm)
+        {
+            try
+            {
+                if (masterSecretOrm.Id == null)
+                {
+                    masterSecretOrm.Id = Guid.NewGuid().ToString();
+                }
+
+                realm.Write(() =>
+                {
+                    realm.Add(masterSecretOrm, true);
+                });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
         public void GenerateFakeData()
         {
             // Delete all objects in database.

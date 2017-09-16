@@ -9,6 +9,7 @@ using Zzz.Core.Models;
 using Zzz.Core.Models.Orm;
 using Zzz.Core.Services.Login;
 using Zzz.Core.Contracts.Services;
+using Zzz.Core.Repositories;
 
 namespace Zzz.Core
 {
@@ -33,7 +34,7 @@ namespace Zzz.Core
 
             MappingRegistration();
 
-            ILoginService _loginService = new LoginService();
+            ILoginService _loginService = new LoginService(new PasswordRepository());
 
             RegisterAppStart(new AppStart(_loginService));
         }
@@ -43,6 +44,7 @@ namespace Zzz.Core
             Mapper.Register<PasswordOrm, Password>();
             Mapper.Register<GroupOrm, Group>();
             Mapper.Register<PasswordGeneratorOrm, PasswordGenerator>();
+            Mapper.Register<MasterSecretOrm, MasterSecret>();
         }
     }
 }

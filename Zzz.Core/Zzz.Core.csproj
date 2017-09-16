@@ -58,7 +58,9 @@
     <Compile Include="Models\App\SearchParameters.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\MasterSecret.cs" />
     <Compile Include="Models\Orm\GroupOrm.cs" />
+    <Compile Include="Models\Orm\MasterSecretOrm.cs" />
     <Compile Include="Models\Orm\PasswordGeneratorOrm.cs" />
     <Compile Include="Models\Orm\PasswordOrm.cs" />
     <Compile Include="Models\Password.cs" />

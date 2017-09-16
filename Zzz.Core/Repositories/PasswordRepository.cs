@@ -94,5 +94,44 @@ namespace Zzz.Core.Repositories
 
             return await Task.FromResult(group);
         }
+
+        public bool HasMasterSecret(string name)
+        {
+            bool result = false;
+
+            try
+            {
+                MasterSecretOrm masterSecretOrm = dbHelper.GetMasterSecret(name);
+                if (masterSecretOrm != null)
+                {
+                    if (masterSecretOrm.Name == name)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            catch
+            {
+                // Ignore exception.
+            }
+
+            return result;
+        }
+
+        public MasterSecret GetMasterSecret(string name)
+        {
+            MasterSecretOrm masterSecretOrm = dbHelper.GetMasterSecret(name);
+            MasterSecret result = masterSecretOrm.Map<MasterSecretOrm, MasterSecret>();
+
+            return result;
+        }
+
+        public async Task<MasterSecret> SaveMasterSecret(MasterSecret masterSecret)
+        {
+            MasterSecretOrm masterSecretOrm = masterSecret.Map<MasterSecret, MasterSecretOrm>();
+            dbHelper.UpdateMasterSecret(masterSecretOrm);
+
+            return await Task.FromResult(masterSecret);
+        }
     }
 }

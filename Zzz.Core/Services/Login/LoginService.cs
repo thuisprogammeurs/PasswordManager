@@ -1,15 +1,21 @@
 ﻿using System;
+using Zzz.Core.Contracts.Repositories;
 using Zzz.Core.Contracts.Services;
+using Zzz.Core.Models;
 
 namespace Zzz.Core.Services.Login
 {
     public class LoginService : ILoginService
     {
+        private readonly IPasswordRepository _passwordRepository;
+        const string _cMasterSecretName = "masterkey";
+        const int _cMaxNumberOfAttempts = 3;
+        const int _cMaxNumberOfAttemptsBeforeLockedOut = 10;
+
         /// <summary>Initializes a new instance of the <see cref="LoginService"/> class.</summary>
-        public LoginService() // e.g. LoginService(IMyApiClient client)
+        public LoginService(IPasswordRepository passwordRepository) // e.g. LoginService(IMyApiClient client)
         {
-            // this constructor would most likely contain some form of API Client that performs
-            // the message creation, sending and deals with the response from a remote API
+            _passwordRepository = passwordRepository;
         }
 
         /// <summary>
@@ -59,13 +65,56 @@ namespace Zzz.Core.Services.Login
         /// <summary>
         /// Logins the specified user name.
         /// </summary>
-        /// <param name="userName">Name of the user.</param>
         /// <param name="password">The users password.</param>
         /// <returns></returns>
-        public bool Login(string userName, string password)
+        public bool Login(string password)
         {
-            // this simply returns true to mock a real login service call
-            return true;
+            bool result = false;
+
+            MasterSecret masterSecret = _passwordRepository.GetMasterSecret(_cMasterSecretName);
+
+            if (password == masterSecret.Password)
+            {
+                result = true;
+            }
+            else
+            {
+                if (masterSecret.NumberOfAttemptsLeft > 0)
+                {
+                    masterSecret.NumberOfAttemptsLeft -= masterSecret.NumberOfAttemptsLeft;
+                }
+                else
+                {
+                    masterSecret.NumberOfAttemptsLeft = _cMaxNumberOfAttempts;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Set the master password.
+        /// </summary>
+        /// <param name="password">The master password.</param>
+        public void SetMasterPassword(string password)
+        {
+            MasterSecret masterSecret = new MasterSecret()
+            {
+                Name = _cMasterSecretName,
+                Password = password,
+                NumberOfAttemptsLeft = _cMaxNumberOfAttempts,
+                LastAttempt = DateTime.Now,
+                NumberOfAttemptsLeftBeforeLockout = _cMaxNumberOfAttemptsBeforeLockedOut
+            };
+
+            _passwordRepository.SaveMasterSecret(masterSecret);
+        }
+
+        public bool IsFirstTime()
+        {
+            bool result = ! _passwordRepository.HasMasterSecret(_cMasterSecretName);
+
+            return result;
         }
     }
 }
