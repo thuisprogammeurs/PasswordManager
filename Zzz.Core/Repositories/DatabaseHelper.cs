@@ -173,7 +173,7 @@ namespace Zzz.Core.Repositories
         public void GenerateFakeData()
         {
             // Delete all objects in database.
-            //CleanDatabase();
+            CleanDatabase();
 
             // Create fake data for testing.
             GroupOrm groupEmail = null;
@@ -182,8 +182,8 @@ namespace Zzz.Core.Repositories
             {
                 realm.Write(() =>
                     {
-                        groupEmail = realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Email", Description = "All email passwords", IconName = "email" });
-                        groupWebShop = realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Web Shop", Description = "All web shop passwords", IconName = "shopcart" });
+                        groupEmail = realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Email", Description = "All email passwords", IconName = "category_mailbox" });
+                        groupWebShop = realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Web Shop", Description = "All web shop passwords", IconName = "category_webshop" });
                     }
                 );
             }

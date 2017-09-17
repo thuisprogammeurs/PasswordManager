@@ -460,6 +460,27 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\save_icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\settings_icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\showpassword_icon.png" />
+    <AndroidResource Include="Resources\drawable\add_icon.png" />
+    <AndroidResource Include="Resources\drawable\generate_icon.png" />
+    <AndroidResource Include="Resources\drawable\search_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\add_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\generate_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\search_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\add_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\generate_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\search_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\add_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\generate_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\search_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\add_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\generate_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\search_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\add_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\generate_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\search_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\add_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\generate_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\search_icon.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
