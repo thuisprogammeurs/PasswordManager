@@ -8,6 +8,6 @@
 
         public string Description { get; set; }
 
-        public int IconId { get; set; }
+        public string IconName { get; set; }
     }
 }

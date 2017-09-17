@@ -336,6 +336,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_content_delete.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_content_delete.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_content_delete.png" />
+    <AndroidResource Include="Resources\drawable\email.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-ldpi\" />
