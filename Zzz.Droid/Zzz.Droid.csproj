@@ -287,9 +287,6 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -304,44 +301,167 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\computer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\shopcart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="FodyWeavers.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\drawable\drawer_shadow_dark.9.png" />
     <AndroidResource Include="Resources\drawable\drawer_shadow_light.9.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\drawable\round_button_add.png" />
+    <AndroidResource Include="Resources\drawable\cancel_icon.png" />
+    <AndroidResource Include="Resources\drawable\category_bank.png" />
+    <AndroidResource Include="Resources\drawable\category_bank_creditcard.png" />
+    <AndroidResource Include="Resources\drawable\category_computer.png" />
+    <AndroidResource Include="Resources\drawable\category_home.png" />
+    <AndroidResource Include="Resources\drawable\category_mailbox.png" />
+    <AndroidResource Include="Resources\drawable\category_other.png" />
+    <AndroidResource Include="Resources\drawable\category_phone_or_tablet.png" />
+    <AndroidResource Include="Resources\drawable\category_socialmedia.png" />
+    <AndroidResource Include="Resources\drawable\category_vpn.png" />
+    <AndroidResource Include="Resources\drawable\category_wallet.png" />
+    <AndroidResource Include="Resources\drawable\category_webshop.png" />
+    <AndroidResource Include="Resources\drawable\category_website.png" />
     <AndroidResource Include="Resources\drawable\delete_icon.png" />
+    <AndroidResource Include="Resources\drawable\help_icon.png" />
+    <AndroidResource Include="Resources\drawable\login_icon.png" />
+    <AndroidResource Include="Resources\drawable\logout_icon.png" />
+    <AndroidResource Include="Resources\drawable\password_generator_icon.png" />
+    <AndroidResource Include="Resources\drawable\refresh_icon.png" />
+    <AndroidResource Include="Resources\drawable\save_icon.png" />
+    <AndroidResource Include="Resources\drawable\settings_icon.png" />
+    <AndroidResource Include="Resources\drawable\showpassword_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\cancel_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_bank.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_bank_creditcard.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_computer.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_home.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_mailbox.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_other.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_phone_or_tablet.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_socialmedia.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_vpn.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_wallet.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_webshop.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\category_website.png" />
     <AndroidResource Include="Resources\drawable-hdpi\delete_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\help_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\login_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logout_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\password_generator_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\refresh_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\save_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\settings_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\showpassword_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\cancel_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_bank.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_bank_creditcard.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_computer.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_home.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_mailbox.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_other.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_phone_or_tablet.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_socialmedia.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_vpn.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_wallet.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_webshop.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\category_website.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\delete_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\help_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\login_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\logout_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\password_generator_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\refresh_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\save_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\settings_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\showpassword_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\cancel_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_bank.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_bank_creditcard.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_computer.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_home.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_mailbox.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_other.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_phone_or_tablet.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_socialmedia.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_vpn.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_wallet.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_webshop.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\category_website.png" />
     <AndroidResource Include="Resources\drawable-mdpi\delete_icon.png" />
-    <AndroidResource Include="Resources\drawable\generate_password_icon.png" />
-    <AndroidResource Include="Resources\drawable\login_control.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_content_cancel.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_content_save.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_content_cancel.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_content_save.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\help_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\login_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\logout_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\password_generator_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\refresh_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\save_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\settings_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\showpassword_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\cancel_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_bank.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_bank_creditcard.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_computer.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_home.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_mailbox.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_other.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_phone_or_tablet.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_socialmedia.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_vpn.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_wallet.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_webshop.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\category_website.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\delete_icon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_content_cancel.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_content_save.png" />
-    <AndroidResource Include="Resources\drawable\ic_action_content_cancel.png" />
-    <AndroidResource Include="Resources\drawable\ic_action_content_save.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_content_cancel.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_content_delete.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_content_save.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_content_delete.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_content_delete.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_content_delete.png" />
-    <AndroidResource Include="Resources\drawable\email.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\help_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\login_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logout_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\password_generator_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\refresh_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\save_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\settings_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\showpassword_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cancel_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_bank.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_bank_creditcard.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_computer.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_home.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_mailbox.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_other.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_phone_or_tablet.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_socialmedia.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_vpn.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_wallet.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_webshop.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\category_website.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\delete_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\help_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\login_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logout_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\password_generator_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\refresh_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\save_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\settings_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\showpassword_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\cancel_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_bank.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_bank_creditcard.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_computer.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_home.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_mailbox.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_other.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_phone_or_tablet.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_socialmedia.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_vpn.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_wallet.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_webshop.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\category_website.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\delete_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\help_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\login_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\logout_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\password_generator_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\refresh_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\save_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\settings_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\showpassword_icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable-ldpi\" />
-    <Folder Include="Resources\drawable-xxxhdpi\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

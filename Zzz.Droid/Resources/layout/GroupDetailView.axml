@@ -4,11 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+  
   <TextView
       android:text="Name:"
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
       android:id="@+id/lblName" />
   <EditText
       android:layout_width="match_parent"
@@ -26,34 +28,4 @@
       android:layout_height="wrap_content"
       android:id="@+id/txtPassword"
       local:MvxBind="Text SelectedGroup.Description; Error ValidationErrors['Description']" />
-
-  <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="0dip"
-    android:layout_weight="1"
-    android:gravity="center|bottom">
-      <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14dp"
-        android:text="Delete"
-        local:MvxBind="Click DeleteCommand" />
-      <Button
-          android:id="@+id/btnSave"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textSize="14dp"
-          android:text="Save"
-          local:MvxBind="Click SaveCommand" />
-      <Button
-          android:id="@+id/btnCancel"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textSize="14dp"
-          android:text="Cancel"
-          local:MvxBind="Click CancelCommand" />
-  </LinearLayout>-->
 </LinearLayout>
