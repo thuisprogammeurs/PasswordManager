@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto">
   <item
-    android:id="@+id/menu_delete"
-    android:icon="@drawable/delete_icon"
+    android:id="@+id/menu_refresh"
+    android:icon="@drawable/refresh_icon"
     app:showAsAction="always"
-    android:title="Delete" />
+    android:title="Regenerate" />
   <item
-    android:id="@+id/menu_save"
+    android:id="@+id/menu_ok"
     android:icon="@drawable/ok_icon"
     app:showAsAction="always"
-    android:title="Save" />
+    android:title="Ok" />
   <item
     android:id="@+id/menu_cancel"
     android:icon="@drawable/cancel_only_icon"

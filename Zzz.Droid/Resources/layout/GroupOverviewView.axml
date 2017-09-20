@@ -4,26 +4,15 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  
+
   <Mvx.MvxListView
+      style="@style/ListViewStyle"
       android:id="@+id/list"
-      android:scrollbars="vertical"
-      android:choiceMode="singleChoice"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:layout_gravity="left|start"
       local:MvxItemTemplate="@layout/listviewwithicontemplate"
       local:MvxBind="ItemsSource AllGroups; ItemClick ShowGroupDetailsCommand" />
-  
+
   <android.support.design.widget.FloatingActionButton
+      style="@style/FloatingButtonStyle"
       android:id="@+id/fab"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="bottom|right"
-      android:layout_marginRight="5dp"
-      android:layout_marginBottom="5dp"
-      android:clickable="true"
-      local:MvxBind="Click AddGroupCommand"
-      local:elevation="8dp"
-      android:src="@drawable/add_icon" />
+      local:MvxBind="Click AddGroupCommand" />
 </FrameLayout>

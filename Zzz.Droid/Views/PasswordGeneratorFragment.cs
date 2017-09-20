@@ -19,6 +19,9 @@ namespace Zzz.Droid.Views
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
+            // Show the options menu.
+            HasOptionsMenu = true;
+
             return this.BindingInflate(Resource.Layout.PasswordGeneratorView, null);
         }
 
@@ -26,6 +29,33 @@ namespace Zzz.Droid.Views
         {
             base.OnViewCreated(view, savedInstanceState);
             (this.Activity as MainActivity).SetCustomTitle("Password Generator");
+        }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            base.OnCreateOptionsMenu(menu, inflater);
+            inflater.Inflate(Resource.Menu.toolbar_menu_generate, menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_refresh:
+                    ViewModel.RegenerateCommand.Execute(null);
+                    return true;
+
+                case Resource.Id.menu_ok:
+                    ViewModel.SelectCommand.Execute(null);
+                    return true;
+
+                case Resource.Id.menu_cancel:
+                    ViewModel.CancelCommand.Execute(null);
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
     }
 }

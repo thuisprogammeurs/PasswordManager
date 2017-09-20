@@ -173,7 +173,7 @@ namespace Zzz.Core.Repositories
         public void GenerateFakeData()
         {
             // Delete all objects in database.
-            CleanDatabase();
+            //CleanDatabase();
 
             // Create fake data for testing.
             GroupOrm groupEmail = null;

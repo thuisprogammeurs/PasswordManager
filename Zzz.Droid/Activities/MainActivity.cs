@@ -20,7 +20,7 @@ using MvvmCross.Droid.Support.V4;
 namespace Zzz.Droid.Activities
 {
     [Activity(Label = "Main Activity"
-        , Theme = "@style/AppTheme"
+        , Theme = "@style/AppTheme.Base"
         , LaunchMode = LaunchMode.SingleTop
         , ScreenOrientation = ScreenOrientation.Portrait
         , Name = "zzz.droid.activities.MainActivity")]

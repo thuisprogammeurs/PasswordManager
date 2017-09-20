@@ -4,28 +4,22 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  
+
   <TextView
+      style="@style/LabelStyle"
       android:text="Name:"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
       android:id="@+id/lblName" />
   <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      style="@style/EditTextStyle"
       android:id="@+id/txtName"
       local:MvxBind="Text SelectedGroup.Name; Error ValidationErrors['Name']" />
   <TextView
+      style="@style/LabelStyle"
       android:text="Description:"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
       android:id="@+id/lblDescription" />
   <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      style="@style/EditTextStyle"
       android:id="@+id/txtPassword"
       local:MvxBind="Text SelectedGroup.Description; Error ValidationErrors['Description']" />
+
 </LinearLayout>

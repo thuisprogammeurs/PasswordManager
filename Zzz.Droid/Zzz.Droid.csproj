@@ -277,6 +277,9 @@
     <AndroidResource Include="Resources\layout\PasswordOverviewListItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\menu\toolbar_menu_generate.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\MainView.axml">
@@ -302,10 +305,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
-    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\colors.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\drawer_shadow_dark.9.png" />
     <AndroidResource Include="Resources\drawable\drawer_shadow_light.9.png" />
-    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\cancel_icon.png" />
     <AndroidResource Include="Resources\drawable\category_bank.png" />
     <AndroidResource Include="Resources\drawable\category_bank_creditcard.png" />
@@ -481,6 +488,29 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\add_icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\generate_icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\search_icon.png" />
+    <AndroidResource Include="Resources\drawable\add_only_icon.png" />
+    <AndroidResource Include="Resources\drawable\cancel_only_icon.png" />
+    <AndroidResource Include="Resources\drawable\ok_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\add_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\cancel_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ok_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\add_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\cancel_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ok_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\add_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\cancel_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ok_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\add_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\cancel_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ok_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\add_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cancel_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ok_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\add_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\cancel_only_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ok_icon.png" />
+    <AndroidResource Include="Resources\drawable\silence_sign_icon.png" />
+    <AndroidResource Include="Resources\drawable\splashscreen_title.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
