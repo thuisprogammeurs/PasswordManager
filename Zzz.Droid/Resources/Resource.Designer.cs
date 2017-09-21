@@ -6285,8 +6285,8 @@ namespace Zzz.Droid
 			// aapt resource value: 0x7f0c0172
 			public const int Base_Widget_Design_TabLayout = 2131493234;
 			
-			// aapt resource value: 0x7f0c0191
-			public const int ButtonStyle = 2131493265;
+			// aapt resource value: 0x7f0c0192
+			public const int ButtonStyle = 2131493266;
 			
 			// aapt resource value: 0x7f0c000b
 			public const int CardView = 2131492875;
@@ -6297,35 +6297,38 @@ namespace Zzz.Droid
 			// aapt resource value: 0x7f0c000e
 			public const int CardView_Light = 2131492878;
 			
-			// aapt resource value: 0x7f0c019b
-			public const int CheckboxStyle = 2131493275;
+			// aapt resource value: 0x7f0c019c
+			public const int CheckboxStyle = 2131493276;
+			
+			// aapt resource value: 0x7f0c018e
+			public const int EditTextPasswordStyle = 2131493262;
 			
 			// aapt resource value: 0x7f0c018d
 			public const int EditTextStyle = 2131493261;
 			
-			// aapt resource value: 0x7f0c018f
-			public const int FloatingButtonStyle = 2131493263;
-			
 			// aapt resource value: 0x7f0c0190
-			public const int ImageButtonStyle = 2131493264;
+			public const int FloatingButtonStyle = 2131493264;
+			
+			// aapt resource value: 0x7f0c0191
+			public const int ImageButtonStyle = 2131493265;
 			
 			// aapt resource value: 0x7f0c018c
 			public const int LabelStyle = 2131493260;
 			
-			// aapt resource value: 0x7f0c0194
-			public const int ListViewIconStyle = 2131493268;
-			
 			// aapt resource value: 0x7f0c0195
-			public const int ListViewMainTextStyle = 2131493269;
-			
-			// aapt resource value: 0x7f0c018e
-			public const int ListViewStyle = 2131493262;
+			public const int ListViewIconStyle = 2131493269;
 			
 			// aapt resource value: 0x7f0c0196
-			public const int ListViewSubTextStyle = 2131493270;
+			public const int ListViewMainTextStyle = 2131493270;
 			
-			// aapt resource value: 0x7f0c0192
-			public const int MenuTextStyle = 2131493266;
+			// aapt resource value: 0x7f0c018f
+			public const int ListViewStyle = 2131493263;
+			
+			// aapt resource value: 0x7f0c0197
+			public const int ListViewSubTextStyle = 2131493271;
+			
+			// aapt resource value: 0x7f0c0193
+			public const int MenuTextStyle = 2131493267;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int Platform_AppCompat = 2131492909;
@@ -6411,17 +6414,17 @@ namespace Zzz.Droid
 			// aapt resource value: 0x7f0c004d
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131492941;
 			
-			// aapt resource value: 0x7f0c019a
-			public const int SeekbarStyle = 2131493274;
-			
-			// aapt resource value: 0x7f0c0198
-			public const int SpinnerItemCloseStyle = 2131493272;
+			// aapt resource value: 0x7f0c019b
+			public const int SeekbarStyle = 2131493275;
 			
 			// aapt resource value: 0x7f0c0199
-			public const int SpinnerItemDropdownStyle = 2131493273;
+			public const int SpinnerItemCloseStyle = 2131493273;
 			
-			// aapt resource value: 0x7f0c0197
-			public const int SpinnerStyle = 2131493271;
+			// aapt resource value: 0x7f0c019a
+			public const int SpinnerItemDropdownStyle = 2131493274;
+			
+			// aapt resource value: 0x7f0c0198
+			public const int SpinnerStyle = 2131493272;
 			
 			// aapt resource value: 0x7f0c00dd
 			public const int TextAppearance_AppCompat = 2131493085;
@@ -6768,8 +6771,8 @@ namespace Zzz.Droid
 			// aapt resource value: 0x7f0c0008
 			public const int ThemeOverlay_MediaRouter_Light = 2131492872;
 			
-			// aapt resource value: 0x7f0c0193
-			public const int ToolbarStyle = 2131493267;
+			// aapt resource value: 0x7f0c0194
+			public const int ToolbarStyle = 2131493268;
 			
 			// aapt resource value: 0x7f0c0126
 			public const int Widget_AppCompat_ActionBar = 2131493158;
