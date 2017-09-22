@@ -4,16 +4,22 @@
   <item
     android:id="@+id/menu_refresh"
     android:icon="@drawable/refresh_icon"
+    android:layout_width="36dp"
+    android:layout_height="36dp"
     app:showAsAction="always"
     android:title="Regenerate" />
   <item
     android:id="@+id/menu_ok"
     android:icon="@drawable/ok_icon"
+    android:layout_width="36dp"
+    android:layout_height="36dp"
     app:showAsAction="always"
     android:title="Ok" />
   <item
     android:id="@+id/menu_cancel"
     android:icon="@drawable/cancel_only_icon"
+    android:layout_width="36dp"
+    android:layout_height="36dp"
     app:showAsAction="always"
     android:title="Cancel" />
 </menu>

@@ -4,11 +4,15 @@
   <item
     android:id="@+id/menu_save"
     android:icon="@drawable/ok_icon"
+    android:layout_width="36dp"
+    android:layout_height="36dp"
     app:showAsAction="always"
     android:title="Save" />
   <item
     android:id="@+id/menu_cancel"
     android:icon="@drawable/cancel_only_icon"
+    android:layout_width="36dp"
+    android:layout_height="36dp"
     app:showAsAction="always"
     android:title="Cancel" />
 </menu>
