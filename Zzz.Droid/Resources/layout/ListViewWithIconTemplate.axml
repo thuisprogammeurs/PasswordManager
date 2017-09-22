@@ -6,7 +6,7 @@
   android:orientation="horizontal">
   
   <ImageView
-    style="@style/LabelStyle"
+    style="@style/ListViewIconStyle"
     android:id="@+id/itemIcon"
     local:MvxBind="DrawableName IconName" />
   
