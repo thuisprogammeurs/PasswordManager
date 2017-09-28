@@ -11,8 +11,10 @@ using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Droid.Views;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
+using MvvmCross.Platform.Droid.Platform;
 using Zzz.Core.Contracts.Services;
 using Zzz.Droid.Services;
+using Zzz.Droid.Utilities;
 
 namespace Zzz.Droid
 {
@@ -43,6 +45,22 @@ namespace Zzz.Droid
             var mvxFragmentsPresenter =
                 new MvxFragmentsPresenter(AndroidViewAssemblies);
             Mvx.RegisterSingleton<IMvxAndroidViewPresenter>(mvxFragmentsPresenter);
+
+            //add a presentation hint handler to listen for pop to root
+            mvxFragmentsPresenter.AddPresentationHintHandler<MvxPanelPopToRootPresentationHint>(hint =>
+            {
+                var activity = Mvx.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
+                var fragmentActivity = activity as Android.Support.V4.App.FragmentActivity;
+
+                for (int i = 0; i < fragmentActivity.SupportFragmentManager.BackStackEntryCount; i++)
+                {
+                    fragmentActivity.SupportFragmentManager.PopBackStack();
+                }
+                return true;
+            });
+            //register the presentation hint to pop to root
+            //picked up in the third view model
+            Mvx.RegisterSingleton<MvxPresentationHint>(() => new MvxPanelPopToRootPresentationHint());
             return mvxFragmentsPresenter;
         }
 

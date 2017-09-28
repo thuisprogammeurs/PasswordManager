@@ -14,19 +14,24 @@ namespace Zzz.Droid.Views
 {
     [MvxFragment(typeof(MainViewModel), Resource.Id.content_frame, true)]
     [Register("zzz.droid.views.GroupOverviewFragment")]
-    public class GroupOverviewFragment : MvxFragment<GroupOverviewViewModel>
+    public class GroupOverviewFragment : BaseFragment<GroupOverviewViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            base.OnCreateView(inflater, container, savedInstanceState);
-            return this.BindingInflate(Resource.Layout.GroupOverviewView, null);
+            // Show the hamburger menu.
+            ShowHamburgerMenu = true;
+            // Screen title.
+            ((MainActivity)Activity).Title = "Group Overview";
+
+            return base.OnCreateView(inflater, container, savedInstanceState);
+            //return this.BindingInflate(Resource.Layout.GroupOverviewView, null);
         }
 
-        public override void OnViewCreated(View view, Bundle savedInstanceState)
-        {
-            base.OnViewCreated(view, savedInstanceState);
-            (this.Activity as MainActivity).SetCustomTitle("Group Overview");
-        }
+        //public override void OnViewCreated(View view, Bundle savedInstanceState)
+        //{
+        //    base.OnViewCreated(view, savedInstanceState);
+        //    (this.Activity as MainActivity).SetCustomTitle("Group Overview");
+        //}
 
         public override void OnResume()
         {
@@ -37,6 +42,14 @@ namespace Zzz.Droid.Views
         public override void OnStop()
         {
             base.OnStop();
+        }
+
+        protected override int FragmentId
+        {
+            get
+            {
+                return Resource.Layout.GroupOverviewView;
+            }
         }
     }
 }

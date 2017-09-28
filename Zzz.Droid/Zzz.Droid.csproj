@@ -208,6 +208,8 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\OverviewListAdapter.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="Converters\MenuItemToTextColorConverter.cs" />
+    <Compile Include="Converters\MenuOptionToIconAssetNameConverter.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="Extensions\ActivityExtensions.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -215,6 +217,8 @@
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="Utilities\MvxPanelPopToRootPresentationHint.cs" />
+    <Compile Include="Views\BaseFragment.cs" />
     <Compile Include="Views\GroupDetailFragment.cs" />
     <Compile Include="Views\GroupOverviewFragment.cs" />
     <Compile Include="Views\MenuFragment.cs" />
@@ -253,7 +257,7 @@
     <AndroidResource Include="Resources\layout\GroupDetailView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_menu.axml">
+    <AndroidResource Include="Resources\layout\fragment_navigation.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\item_menu.axml">
@@ -278,6 +282,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\menu\toolbar_menu_generate.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_navigation_header.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\navigation_drawer.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -511,6 +521,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ok_icon.png" />
     <AndroidResource Include="Resources\drawable\silence_sign_icon.png" />
     <AndroidResource Include="Resources\drawable\splashscreen_title.png" />
+    <AndroidResource Include="Resources\drawable\navigation_header.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

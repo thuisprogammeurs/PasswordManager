@@ -13,17 +13,18 @@ namespace Zzz.Droid.Views
 {
     [MvxFragment(typeof(MainViewModel), Resource.Id.content_frame, true)]
     [Register("zzz.droid.views.GroupDetailFragment")]
-    public class GroupDetailFragment : MvxFragment<GroupDetailViewModel>
+    public class GroupDetailFragment : BaseFragment<GroupDetailViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            base.OnCreateView(inflater, container, savedInstanceState);
+            // Show the hamburger menu.
+            ShowHamburgerMenu = false;
             // Show the options menu.
             HasOptionsMenu = true;
+            // Screen title.
+            ((MainActivity)Activity).Title = "Group Details";
 
-            View groupDetailView = this.BindingInflate(Resource.Layout.GroupDetailView, null);
-
-            return groupDetailView;
+            return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
@@ -71,12 +72,6 @@ namespace Zzz.Droid.Views
             }
         }
 
-        public override void OnViewCreated(View view, Bundle savedInstanceState)
-        {
-            base.OnViewCreated(view, savedInstanceState);
-            (this.Activity as MainActivity).SetCustomTitle("Group details");
-        }
-
         public override void OnResume()
         {
             ViewModel.Start();
@@ -86,6 +81,14 @@ namespace Zzz.Droid.Views
         public override void OnStop()
         {
             base.OnStop();
+        }
+
+        protected override int FragmentId
+        {
+            get
+            {
+                return Resource.Layout.GroupDetailView;
+            }
         }
     }
 }

@@ -1,52 +1,81 @@
 using System;
+using System.Threading.Tasks;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Views;
-using Android.Widget;
 using MvvmCross.Droid.Shared.Attributes;
+using MvvmCross.Droid.Support.V4;
 using MvvmCross.Binding.Droid.BindingContext;
+
 using Zzz.Core.ViewModels;
 using Zzz.Droid.Activities;
 using Zzz.Droid.Extensions;
-using MvvmCross.Droid.Support.V4;
 
 namespace Zzz.Droid.Views
 {
-    [MvxFragment(typeof(MainViewModel), Resource.Id.left_drawer, true)]
+    [MvxFragment(typeof(MainViewModel), Resource.Id.navigation_frame)]
     [Register("zzz.droid.views.MenuFragment")]
-    public class MenuFragment : MvxFragment<MenuViewModel>
+    public class MenuFragment : MvxFragment<MenuViewModel>, NavigationView.IOnNavigationItemSelectedListener
     {
-        public MenuFragment()
-        {
-
-        }
+        private NavigationView _navigationView;
+        private IMenuItem _previousMenuItem;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            base.OnCreateView(inflater, container, savedInstanceState);
-            return this.BindingInflate(Resource.Layout.fragment_menu, null);
+            var ignore = base.OnCreateView(inflater, container, savedInstanceState);
+
+            var view = this.BindingInflate(Resource.Layout.fragment_navigation, null);
+
+            _navigationView = view.FindViewById<NavigationView>(Resource.Id.navigation_view);
+            _navigationView.SetNavigationItemSelectedListener(this);
+            _navigationView.Menu.FindItem(Resource.Id.nav_password).SetChecked(true);
+
+            return view;
         }
 
-        public override void OnStart()
+        public bool OnNavigationItemSelected(IMenuItem item)
         {
-            base.OnStart();
-            ViewModel.CloseMenu += OnCloseMenu;
-        }
+            if (item != _previousMenuItem)
+            {
+                _previousMenuItem?.SetChecked(false);
+            }
 
-        public override void OnStop()
-        {
-            base.OnStop();
-            ViewModel.CloseMenu -= OnCloseMenu;
-        }
+            item.SetCheckable(true);
+            item.SetChecked(true);
 
-        private void OnCloseMenu(object sender, EventArgs e)
-        {
-            (Activity as MainActivity)?.CloseDrawerMenu();
-        }
+            _previousMenuItem = item;
 
-        public bool OnNavigationItemSelected(IMenuItem menuItem)
-        {
+            Navigate(item.ItemId);
+
             return true;
+        }
+
+        private async Task Navigate(int itemId)
+        {
+            ((MainActivity)Activity).DrawerLayout.CloseDrawers();
+
+            // add a small delay to prevent any UI issues
+            await Task.Delay(TimeSpan.FromMilliseconds(250));
+
+            switch (itemId)
+            {
+                case Resource.Id.nav_password:
+                    ViewModel.ShowPasswordCommand.Execute();
+                    break;
+                case Resource.Id.nav_password_group:
+                    ViewModel.ShowPasswordGroupCommand.Execute();
+                    break;
+                case Resource.Id.nav_password_generator:
+                    ViewModel.ShowPasswordGeneratorCommand.Execute();
+                    break;
+                //case Resource.Id.nav_settings:
+                //    ViewModel.ShowSettingCommand.Execute();
+                //    break;
+                case Resource.Id.nav_exit:
+                    ViewModel.ExitCommand.Execute();
+                    break;
+            }
         }
     }
 }

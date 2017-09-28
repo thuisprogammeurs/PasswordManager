@@ -5,15 +5,16 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:orientation="horizontal">
-  <!--<Mvx.MvxImageView
+  <Mvx.MvxImageView
       local:MvxBind="DrawableId MenuOptionToIconAssetName(Option); TintColor MenuItemToTextColor(IsSelected)"
       android:layout_width="42dp"
       android:scaleType="fitCenter"
       android:layout_height="wrap_content"
-      android:layout_gravity="center_vertical" />-->
+      android:layout_gravity="center_vertical" />
   <TextView
       style="@style/MenuTextStyle"
       android:id="@android:id/text1"
-      local:MvxBind="Text Title" />
+      android:textSize="14dp"
+      local:MvxBind="Text Title; TextColor MenuItemToTextColor(IsSelected)" />
   <!--local:MvxBind="Text Title; TextColor MenuItemToTextColor(IsSelected)"-->
 </LinearLayout>

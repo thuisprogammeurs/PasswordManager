@@ -14,22 +14,25 @@ namespace Zzz.Droid.Views
 {
     [MvxFragment(typeof(MainViewModel), Resource.Id.content_frame, true)]
     [Register("zzz.droid.views.PasswordGeneratorFragment")]
-    public class PasswordGeneratorFragment : MvxFragment<PasswordGeneratorViewModel>
+    public class PasswordGeneratorFragment : BaseFragment<PasswordGeneratorViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            base.OnCreateView(inflater, container, savedInstanceState);
+            // Show the hamburger menu.
+            ShowHamburgerMenu = false;
             // Show the options menu.
             HasOptionsMenu = true;
+            // Screen title.
+            ((MainActivity)Activity).Title = "Password Generator";
 
-            return this.BindingInflate(Resource.Layout.PasswordGeneratorView, null);
+            return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
-        public override void OnViewCreated(View view, Bundle savedInstanceState)
-        {
-            base.OnViewCreated(view, savedInstanceState);
-            (this.Activity as MainActivity).SetCustomTitle("Password Generator");
-        }
+        //public override void OnViewCreated(View view, Bundle savedInstanceState)
+        //{
+        //    base.OnViewCreated(view, savedInstanceState);
+        //    (this.Activity as MainActivity).SetCustomTitle("Password Generator");
+        //}
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
@@ -55,6 +58,14 @@ namespace Zzz.Droid.Views
 
                 default:
                     return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        protected override int FragmentId
+        {
+            get
+            {
+                return Resource.Layout.PasswordGeneratorView;
             }
         }
     }

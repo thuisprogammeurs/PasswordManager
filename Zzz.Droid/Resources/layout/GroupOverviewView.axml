@@ -5,14 +5,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+  <include
+    layout="@layout/toolbar" />
+
   <Mvx.MvxListView
-      style="@style/ListViewStyle"
-      android:id="@+id/list"
-      local:MvxItemTemplate="@layout/listviewwithicontemplate"
-      local:MvxBind="ItemsSource AllGroups; ItemClick ShowGroupDetailsCommand" />
+    style="@style/ListViewStyle"
+    android:id="@+id/list"
+    local:MvxItemTemplate="@layout/listviewwithicontemplate"
+    local:MvxBind="ItemsSource AllGroups; ItemClick ShowGroupDetailsCommand" />
 
   <android.support.design.widget.FloatingActionButton
-      style="@style/FloatingButtonStyle"
-      android:id="@+id/fab"
-      local:MvxBind="Click AddGroupCommand" />
+    style="@style/FloatingButtonStyle"
+    android:id="@+id/fab"
+    local:MvxBind="Click AddGroupCommand" />
 </FrameLayout>

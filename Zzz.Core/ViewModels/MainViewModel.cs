@@ -18,6 +18,7 @@ namespace Zzz.Core.ViewModels
 
         public void ShowMenu()
         {
+            ShowViewModel<PasswordOverviewViewModel>();
             ShowViewModel<MenuViewModel>();
         }
 

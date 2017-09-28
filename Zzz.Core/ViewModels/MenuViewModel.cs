@@ -9,53 +9,59 @@ namespace Zzz.Core.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
-        public MvxCommand<MenuItem> MenuItemSelectCommand => new MvxCommand<MenuItem>(OnMenuEntrySelect);
-        public ObservableCollection<MenuItem> MenuItems { get; }
-
-        public event EventHandler CloseMenu;
-
         public MenuViewModel(IMvxMessenger messenger) : base(messenger)
         {
-            MenuItems = new ObservableCollection<MenuItem>();
-            CreateMenuItems();
+
         }
 
-        private void CreateMenuItems()
+        public IMvxCommand ShowPasswordCommand
         {
-            MenuItems.Add(new MenuItem
-            {
-                Title = "Show passwords",
-                ViewModelType = typeof(PasswordOverviewViewModel),
-                Option = MenuOption.PasswordOverview,
-                IsSelected = true
-            });
-
-            MenuItems.Add(new MenuItem
-            {
-                Title = "Show password groups",
-                ViewModelType = typeof(GroupOverviewViewModel),
-                Option = MenuOption.GroupOverview,
-                IsSelected = false
-            });
-
-            MenuItems.Add(new MenuItem
-            {
-                Title = "Show password generator",
-                ViewModelType = typeof(PasswordGeneratorViewModel),
-                Option = MenuOption.PasswordGenerator,
-                IsSelected = false
-            });
+            get { return new MvxCommand(ShowPasswordExecuted); }
         }
 
-        private void OnMenuEntrySelect(MenuItem item)
+        private void ShowPasswordExecuted()
         {
-            ShowViewModel(item.ViewModelType);
-            RaiseCloseMenu();
+            ShowViewModel<PasswordOverviewViewModel>();
         }
 
-        private void RaiseCloseMenu()
+        public IMvxCommand ShowPasswordGroupCommand
         {
-            CloseMenu?.Invoke(this, EventArgs.Empty);
+            get { return new MvxCommand(ShowPasswordGroupExecuted); }
+        }
+
+        private void ShowPasswordGroupExecuted()
+        {
+            ShowViewModel<GroupOverviewViewModel>();
+        }
+
+        public IMvxCommand ShowPasswordGeneratorCommand
+        {
+            get { return new MvxCommand(ShowPasswordGeneratorExecuted); }
+        }
+
+        private void ShowPasswordGeneratorExecuted()
+        {
+            ShowViewModel<PasswordGeneratorViewModel>();
+        }
+
+        public IMvxCommand ShowSettingCommand
+        {
+            get { return new MvxCommand(ShowSettingExecuted); }
+        }
+
+        private void ShowSettingExecuted()
+        {
+            //ShowViewModel<SettingViewModel>();
+        }
+
+        public IMvxCommand ExitCommand
+        {
+            get { return new MvxCommand(ExitExecuted); }
+        }
+
+        private void ExitExecuted()
+        {
+            // Exit application.
         }
     }
 }
