@@ -134,6 +134,8 @@ namespace Zzz.Core.ViewModels
             {
                 if (_loginService.Login(Password))
                 {
+                    // Clean password and show the main screen.
+                    Password = string.Empty;
                     ShowViewModel<MainViewModel>();
                 }
                 else

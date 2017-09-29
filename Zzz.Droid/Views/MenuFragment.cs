@@ -73,9 +73,15 @@ namespace Zzz.Droid.Views
                 //    ViewModel.ShowSettingCommand.Execute();
                 //    break;
                 case Resource.Id.nav_exit:
-                    ViewModel.ExitCommand.Execute();
+                    CloseApp();
+                    //ViewModel.ExitCommand.Execute();
                     break;
             }
+        }
+
+        private void CloseApp()
+        {
+            ((MainActivity)Activity).Finish();
         }
     }
 }
