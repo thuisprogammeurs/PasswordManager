@@ -23,6 +23,7 @@ namespace Zzz.Core.ViewModels
         private bool _isCharacterEnabled;
         private bool _isNumberEnabled;
         private bool _isSpecialCharacterEnabled;
+        private bool _isLaunchedFromNavMenu;
         private PasswordGenerator _selectedPasswordGenerator;
 
         public PasswordGeneratorViewModel(IMvxMessenger messenger, IMvxNavigationService navigation, IPasswordDataService passwordDataService, IPasswordGeneratorService passwordGeneratorService) : base(messenger, navigation)
@@ -127,6 +128,17 @@ namespace Zzz.Core.ViewModels
                 _isSpecialCharacterEnabled = value;
                 RaisePropertyChanged(() => IsSpecialCharacterEnabled);
             }
+        }
+
+        public bool IsLaunchedFromNavMenu
+        {
+            get { return _isLaunchedFromNavMenu; }
+            set { _isLaunchedFromNavMenu = value; }
+        }
+
+        public void Init(bool isLaunchedFromNavMenu = false)
+        {
+            IsLaunchedFromNavMenu = isLaunchedFromNavMenu;
         }
 
         public override async void Start()

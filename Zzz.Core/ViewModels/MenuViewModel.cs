@@ -41,7 +41,7 @@ namespace Zzz.Core.ViewModels
 
         private void ShowPasswordGeneratorExecuted()
         {
-            ShowViewModel<PasswordGeneratorViewModel>();
+            ShowViewModel<PasswordGeneratorViewModel>(new { isLaunchedFromNavMenu = true });
         }
 
         public IMvxCommand ShowSettingCommand

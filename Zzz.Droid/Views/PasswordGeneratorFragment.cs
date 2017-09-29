@@ -9,6 +9,7 @@ using Zzz.Core.Models;
 using Zzz.Droid.Activities;
 using Zzz.Droid.Extensions;
 using MvvmCross.Droid.Support.V7.AppCompat.Widget;
+using Android.Content;
 
 namespace Zzz.Droid.Views
 {
@@ -19,7 +20,15 @@ namespace Zzz.Droid.Views
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Show the hamburger menu.
-            ShowHamburgerMenu = false;
+            PasswordGeneratorViewModel passwordGeneratorViewModel = (PasswordGeneratorViewModel)ViewModel;
+            if (passwordGeneratorViewModel.IsLaunchedFromNavMenu)
+            {
+                ShowHamburgerMenu = true;
+            }
+            else
+            {
+                ShowHamburgerMenu = false;
+            }
             // Show the options menu.
             HasOptionsMenu = true;
             // Screen title.
@@ -28,16 +37,19 @@ namespace Zzz.Droid.Views
             return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
-        //public override void OnViewCreated(View view, Bundle savedInstanceState)
-        //{
-        //    base.OnViewCreated(view, savedInstanceState);
-        //    (this.Activity as MainActivity).SetCustomTitle("Password Generator");
-        //}
-
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
             base.OnCreateOptionsMenu(menu, inflater);
-            inflater.Inflate(Resource.Menu.toolbar_menu_generate, menu);
+
+            PasswordGeneratorViewModel passwordGeneratorViewModel = (PasswordGeneratorViewModel)ViewModel;
+            if (passwordGeneratorViewModel.IsLaunchedFromNavMenu)
+            {
+                inflater.Inflate(Resource.Menu.toolbar_menu_generate_only, menu);
+            }
+            else
+            {
+                inflater.Inflate(Resource.Menu.toolbar_menu_generate, menu);
+            }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -46,6 +58,9 @@ namespace Zzz.Droid.Views
             {
                 case Resource.Id.menu_refresh:
                     ViewModel.RegenerateCommand.Execute(null);
+                    return true;
+
+                case Resource.Id.menu_copy:
                     return true;
 
                 case Resource.Id.menu_ok:
