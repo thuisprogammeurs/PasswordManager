@@ -6,12 +6,14 @@ using Zzz.Core.Contracts.ViewModels;
 using Zzz.Core.Models;
 using Zzz.Core.Extensions;
 using MvvmValidation;
+using System.Collections.Generic;
 
 namespace Zzz.Core.ViewModels
 {
     public class GroupDetailViewModel : BaseViewModel, IGroupDetailViewModel
     {
         private readonly IPasswordDataService _passwordDataService;
+        private readonly IDialogService _dialogService;
         private Group _selectedGroup;
         private string _groupId;
         private ObservableDictionary<string, string> _validationErrors;
@@ -35,10 +37,10 @@ namespace Zzz.Core.ViewModels
             }
         }
 
-        public GroupDetailViewModel(IMvxMessenger messenger, IPasswordDataService passwordDataService) : base(messenger)
+        public GroupDetailViewModel(IMvxMessenger messenger, IPasswordDataService passwordDataService, IDialogService dialogService) : base(messenger)
         {
-            //_passwordDataService = new PasswordDataService(new PasswordRepository());
             _passwordDataService = passwordDataService;
+            _dialogService = dialogService;
         }
 
         public void Init(string groupId = "")
@@ -75,7 +77,6 @@ namespace Zzz.Core.ViewModels
             get
             {
                 return new MvxCommand(() => Close(this));
-                //return new MvxCommand(() => ShowViewModel<GroupOverviewViewModel>());
             }
         }
 
@@ -96,13 +97,33 @@ namespace Zzz.Core.ViewModels
 
             Group group = await _passwordDataService.SaveGroup(SelectedGroup);
             ShowViewModel<GroupOverviewViewModel>(new { reloadData = true });
-            //Close(this);
         }
 
         private async void DeleteGroup()
         {
-            Group group = await _passwordDataService.DeleteGroup(SelectedGroup);
-            ShowViewModel<GroupOverviewViewModel>(new { reloadData = true });
+            if (CanDelete())
+            {
+                Group group = await _passwordDataService.DeleteGroup(SelectedGroup);
+                ShowViewModel<GroupOverviewViewModel>(new { reloadData = true });
+            }
+            else
+            {
+                await _dialogService.ShowAlertAsync("This password group is in use. Please remove the passwords linked to this password group first.", "Cannot be deleted", "OK");
+            }
+        }
+
+        private bool CanDelete()
+        {
+            // Waiting for result from an async function.
+            List<Password> passwords = _passwordDataService.GetAllPasswordsByGroupId(SelectedGroup.Id).Result;
+
+            bool result = true;
+            if (passwords.Count > 0)
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         private bool IsValid()

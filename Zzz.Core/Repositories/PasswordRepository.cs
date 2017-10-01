@@ -39,6 +39,14 @@ namespace Zzz.Core.Repositories
             return await Task.FromResult(result);
         }
 
+        public async Task<List<Password>> GetAllPasswordsByGroupId(string groupId)
+        {
+            List<PasswordOrm> allPasswordOrms = dbHelper.GetAllPasswordsByGroupId(groupId);
+            List<Password> result = allPasswordOrms.Map<List<PasswordOrm>, List<Password>>();
+
+            return await Task.FromResult(result);
+        }
+
         public async Task<Password> SavePassword(Password password)
         {
             PasswordOrm passwordOrm = password.Map<Password, PasswordOrm>();

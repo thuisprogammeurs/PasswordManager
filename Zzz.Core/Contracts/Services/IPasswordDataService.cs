@@ -10,6 +10,8 @@ namespace Zzz.Core.Contracts.Services
 
         Task<Password> GetPasswordById(string passwordId);
 
+        Task<List<Password>> GetAllPasswordsByGroupId(string groupId);
+
         Task<Password> SavePassword(Password password);
 
         Task<Password> DeletePassword(Password password);

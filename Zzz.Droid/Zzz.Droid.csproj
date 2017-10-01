@@ -293,6 +293,9 @@
     <AndroidResource Include="Resources\menu\toolbar_menu_generate_only.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\menu\toolbar_menu_edit_only.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\MainView.axml">
@@ -524,7 +527,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ok_icon.png" />
     <AndroidResource Include="Resources\drawable\silence_sign_icon.png" />
     <AndroidResource Include="Resources\drawable\splashscreen_title.png" />
-    <AndroidResource Include="Resources\drawable\navigation_header.png" />
     <AndroidResource Include="Resources\drawable\copy_icon.png" />
     <AndroidResource Include="Resources\drawable\group_icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\copy_icon.png" />

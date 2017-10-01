@@ -9,5 +9,7 @@
         public string Description { get; set; }
 
         public string IconName { get; set; }
+
+        public bool IsMaster { get; set; }
     }
 }

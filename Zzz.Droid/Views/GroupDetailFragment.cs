@@ -43,7 +43,16 @@ namespace Zzz.Droid.Views
 
             if (isEditMode)
             {
-                inflater.Inflate(Resource.Menu.toolbar_menu_edit, menu);
+                // Allow to delete?
+                if (groupDetailViewModel.SelectedGroup.IsMaster != true)
+                {
+                    // Yes, it is a customized group and can be deleted.
+                    inflater.Inflate(Resource.Menu.toolbar_menu_edit, menu);
+                }
+                else
+                {
+                    inflater.Inflate(Resource.Menu.toolbar_menu_edit_only, menu);
+                }
             }
             else
             {

@@ -56,6 +56,14 @@ namespace Zzz.Core.Repositories
             return password;
         }
 
+        public List<PasswordOrm> GetAllPasswordsByGroupId(string groupId)
+        {
+            GroupOrm groupOrm = GetGroup(groupId);
+            List<PasswordOrm> allPasswords = new List<PasswordOrm>(realm.All<PasswordOrm>().Where(p => p.PasswordGroup == groupOrm));
+
+            return allPasswords;
+        }
+
         public void UpdatePassword(PasswordOrm password)
         {
             try
@@ -144,11 +152,6 @@ namespace Zzz.Core.Repositories
                     realm.Remove(groupToBeDeleted);
                     trans.Commit();
                 }
-
-                //realm.Write(() =>
-                //{
-                //    realm.Remove(group);
-                //});
             }
             catch (Exception ex)
             {
@@ -191,22 +194,8 @@ namespace Zzz.Core.Repositories
             //CleanDatabase();
 
             // Create fake data for testing.
-            GroupOrm groupEmail = null;
-            GroupOrm groupWebShop = null;
-            //if (GetAllGroups().Count < 1)
-            //{
-            //    realm.Write(() =>
-            //        {
-            //            groupEmail = realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Email", Description = "All email passwords", IconName = "category_mailbox" });
-            //            groupWebShop = realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Web Shop", Description = "All web shop passwords", IconName = "category_webshop" });
-            //        }
-            //    );
-            //}
-            //else
-            //{
-                groupEmail = (GroupOrm)realm.All<GroupOrm>().Where(p => p.Name == "Email").First();
-                groupWebShop = (GroupOrm)realm.All<GroupOrm>().Where(p => p.Name == "Webshop").First();
-            //}
+            GroupOrm groupEmail = (GroupOrm)realm.All<GroupOrm>().Where(p => p.Name == "Email").First();
+            GroupOrm groupWebShop = (GroupOrm)realm.All<GroupOrm>().Where(p => p.Name == "Webshop").First();
 
             if (GetAllPasswords().Count < 1)
             {
@@ -240,17 +229,17 @@ namespace Zzz.Core.Repositories
             {
                 realm.Write(() =>
                     {
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Bank account", Description = "Bank accounts", IconName = "category_bank" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Bank/Creditcard", Description = "Bank cards or creditcards", IconName = "category_bank_creditcard" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Computer", Description = "Computer accounts", IconName = "category_computer" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Home", Description = "Home passwords or pincodes", IconName = "category_home" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Email", Description = "Email accounts", IconName = "category_mailbox" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Phone/Tablet", Description = "Mobile phone or tablet accounts", IconName = "category_phone_or_tablet" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Social media", Description = "Social media accounts", IconName = "category_socialmedia" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "VPN", Description = "VPN accounts", IconName = "category_vpn" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Digital wallet", Description = "Digital wallet accounts", IconName = "category_wallet" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Webshop", Description = "Webshop accounts", IconName = "category_webshop" });
-                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Website", Description = "Website accounts", IconName = "category_website" });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Bank account", Description = "Bank accounts", IconName = "category_bank", IsMaster=true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Bank/Creditcard", Description = "Bank cards or creditcards", IconName = "category_bank_creditcard", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Computer", Description = "Computer accounts", IconName = "category_computer", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Home", Description = "Home passwords or pincodes", IconName = "category_home", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Email", Description = "Email accounts", IconName = "category_mailbox", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Phone/Tablet", Description = "Mobile phone or tablet accounts", IconName = "category_phone_or_tablet", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Social media", Description = "Social media accounts", IconName = "category_socialmedia", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "VPN", Description = "VPN accounts", IconName = "category_vpn", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Digital wallet", Description = "Digital wallet accounts", IconName = "category_wallet", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Webshop", Description = "Webshop accounts", IconName = "category_webshop", IsMaster = true });
+                        realm.Add(new GroupOrm { Id = Guid.NewGuid().ToString(), Name = "Website", Description = "Website accounts", IconName = "category_website", IsMaster = true });
                     }
                 );
             }
