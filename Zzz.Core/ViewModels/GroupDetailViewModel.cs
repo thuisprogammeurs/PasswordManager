@@ -61,7 +61,14 @@ namespace Zzz.Core.ViewModels
 
         protected override async Task InitializeAsync()
         {
-            SelectedGroup = await _passwordDataService.GetGroupById(_groupId);
+            if (_groupId != string.Empty)
+            {
+                SelectedGroup = await _passwordDataService.GetGroupById(_groupId);
+            }
+            else
+            {
+                SelectedGroup = new Group();
+            }
         }
 
         public IMvxCommand SaveCommand

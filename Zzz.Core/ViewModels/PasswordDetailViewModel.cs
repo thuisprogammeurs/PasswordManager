@@ -107,12 +107,20 @@ namespace Zzz.Core.ViewModels
             {
                 SelectedPassword = await _passwordDataService.GetPasswordById(_passwordId);
             }
+            else
+            {
+                SelectedPassword = new Password();
+            }
 
             await LoadGroups();
 
             if (SelectedPassword != null)
             {
                 SelectedGroup = await _passwordDataService.GetGroupById(SelectedPassword.PasswordGroup.Id);
+            }
+            else
+            {
+                SelectedGroup = new Group();
             }
         }
 
