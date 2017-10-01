@@ -26,6 +26,12 @@ namespace Zzz.Core.Services.Generator
 
             passwordGenerator.GeneratedPassword = randomPassword.GenerateRandomPassword();
 
+            //PronounceablePassword pronounceablePassword = new PronounceablePassword(
+            //    passwordGenerator.PasswordLength, passwordGenerator.IsIncludeCharacter
+            //    , passwordGenerator.IsIncludeNumber, passwordGenerator.IsIncludeSpecialCharacter);
+
+            //passwordGenerator.GeneratedPassword = pronounceablePassword.GeneratePronounceablePassword();
+
             return await Task.FromResult(passwordGenerator);
         }
     }

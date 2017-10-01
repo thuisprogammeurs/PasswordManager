@@ -539,6 +539,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\group_icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\copy_icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\group_icon.png" />
+    <AndroidResource Include="Resources\drawable\loginscreen_icon.png" />
+    <AndroidResource Include="Resources\drawable\navigation_header_icon.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

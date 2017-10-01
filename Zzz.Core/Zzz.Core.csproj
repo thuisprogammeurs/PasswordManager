@@ -73,6 +73,7 @@
     <Compile Include="Services\Data\PasswordDataService.cs" />
     <Compile Include="Services\General\ConnectionService.cs" />
     <Compile Include="Services\Generator\PasswordGeneratorService.cs" />
+    <Compile Include="Services\Generator\PronounceablePassword.cs" />
     <Compile Include="Services\Generator\RandomPassword.cs" />
     <Compile Include="Services\Login\LoginService.cs" />
     <Compile Include="Utility\MenuOption.cs" />
