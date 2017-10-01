@@ -9,6 +9,8 @@ using Zzz.Core.Extensions;
 using Zzz.Core.Messages;
 using MvvmCross.Core.Navigation;
 using MvvmValidation;
+using Chance.MvvmCross.Plugins.UserInteraction;
+using MvvmCross.Platform;
 
 namespace Zzz.Core.ViewModels
 {
@@ -175,8 +177,11 @@ namespace Zzz.Core.ViewModels
 
         private async void DeletePassword()
         {
-            Password password = await _passwordDataService.DeletePassword(SelectedPassword);
-            ShowViewModel<PasswordOverviewViewModel>(new { reloadData = true });
+            if (await Mvx.Resolve<IUserInteraction>().ConfirmAsync("Are you sure?"))
+            {
+                Password password = await _passwordDataService.DeletePassword(SelectedPassword);
+                ShowViewModel<PasswordOverviewViewModel>(new { reloadData = true });
+            }
         }
 
         private async void GeneratePassword()
