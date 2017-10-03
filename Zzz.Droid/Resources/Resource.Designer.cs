@@ -2953,6 +2953,8 @@ namespace Zzz.Droid
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Styleable.ViewStubCompat_android_id = global::Zzz.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Zzz.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::MvvmCross.Droid.Support.V7.AppCompat.Resource.Styleable.ViewStubCompat_android_layout = global::Zzz.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::PCLCrypto.Resource.String.ApplicationName = global::Zzz.Droid.Resource.String.ApplicationName;
+			global::PCLCrypto.Resource.String.Hello = global::Zzz.Droid.Resource.String.Hello;
 			global::Splat.Resource.String.library_name = global::Zzz.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Zzz.Droid.Resource.Attribute.actionBarSize;
 		}
@@ -7064,8 +7066,11 @@ namespace Zzz.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f0a0040
+			public const int ApplicationName = 2131361856;
+			
 			// aapt resource value: 0x7f0a003f
-			public const int ApplicationName = 2131361855;
+			public const int Hello = 2131361855;
 			
 			// aapt resource value: 0x7f0a0015
 			public const int abc_action_bar_home_description = 2131361813;
@@ -7169,11 +7174,11 @@ namespace Zzz.Droid
 			// aapt resource value: 0x7f0a0038
 			public const int character_counter_pattern = 2131361848;
 			
-			// aapt resource value: 0x7f0a0041
-			public const int drawer_close = 2131361857;
+			// aapt resource value: 0x7f0a0042
+			public const int drawer_close = 2131361858;
 			
-			// aapt resource value: 0x7f0a0040
-			public const int drawer_open = 2131361856;
+			// aapt resource value: 0x7f0a0041
+			public const int drawer_open = 2131361857;
 			
 			// aapt resource value: 0x7f0a003e
 			public const int library_name = 2131361854;

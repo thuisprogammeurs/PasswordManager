@@ -8,14 +8,16 @@ namespace Zzz.Core.Services.Login
     public class LoginService : ILoginService
     {
         private readonly IPasswordRepository _passwordRepository;
+        private readonly ISecurityService _securityService;
         const string _cMasterSecretName = "masterkey";
         const int _cMaxNumberOfAttempts = 3;
         const int _cMaxNumberOfAttemptsBeforeLockedOut = 10;
 
         /// <summary>Initializes a new instance of the <see cref="LoginService"/> class.</summary>
-        public LoginService(IPasswordRepository passwordRepository) // e.g. LoginService(IMyApiClient client)
+        public LoginService(IPasswordRepository passwordRepository, ISecurityService securityService) // e.g. LoginService(IMyApiClient client)
         {
             _passwordRepository = passwordRepository;
+            _securityService = securityService;
         }
 
         /// <summary>
@@ -72,8 +74,9 @@ namespace Zzz.Core.Services.Login
             bool result = false;
 
             MasterSecret masterSecret = _passwordRepository.GetMasterSecret(_cMasterSecretName);
+            string hashedPassword = _securityService.HashData(password).Result;
 
-            if (password == masterSecret.Password)
+            if (hashedPassword == masterSecret.Password)
             {
                 result = true;
             }
@@ -98,10 +101,12 @@ namespace Zzz.Core.Services.Login
         /// <param name="password">The master password.</param>
         public void SetMasterPassword(string password)
         {
+            string hashedPassword = _securityService.HashData(password).Result;
+
             MasterSecret masterSecret = new MasterSecret()
             {
                 Name = _cMasterSecretName,
-                Password = password,
+                Password = hashedPassword,
                 NumberOfAttemptsLeft = _cMaxNumberOfAttempts,
                 LastAttempt = DateTime.Now,
                 NumberOfAttemptsLeftBeforeLockout = _cMaxNumberOfAttemptsBeforeLockedOut

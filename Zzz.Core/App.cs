@@ -10,6 +10,7 @@ using Zzz.Core.Models.Orm;
 using Zzz.Core.Services.Login;
 using Zzz.Core.Contracts.Services;
 using Zzz.Core.Repositories;
+using Zzz.Core.Services.Security;
 
 namespace Zzz.Core
 {
@@ -34,9 +35,15 @@ namespace Zzz.Core
 
             MappingRegistration();
 
-            ILoginService _loginService = new LoginService(new PasswordRepository());
-
+            ILoginService _loginService = new LoginService(new PasswordRepository(), new SecurityService());
             RegisterAppStart(new AppStart(_loginService));
+
+            //Mvx.ConstructAndRegisterSingleton<IMvxAppStart, AppStart>();
+
+            //// Request a reference to the constructed appstart object 
+            //var appStart = Mvx.Resolve<IMvxAppStart>();
+
+            //RegisterAppStart(appStart);
         }
 
         private void MappingRegistration()
