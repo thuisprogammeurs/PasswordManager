@@ -1,6 +1,7 @@
 ﻿using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Zzz.Core.Contracts.Services;
@@ -15,6 +16,7 @@ namespace Zzz.Core.ViewModels
         private readonly IPasswordDataService _passwordDataService;
         private ObservableCollection<AuthPicture> _allPictures;
         private string _picturePassword;
+        private List<AuthPicture> _selectedAuthPictures;
 
         public PictureAuthViewModel(IMvxMessenger messenger, IMvxNavigationService navigation, IPasswordDataService passwordDataService) : base(messenger, navigation)
         {
@@ -24,7 +26,7 @@ namespace Zzz.Core.ViewModels
             PicturePassword = "Empty";
 
             ConfirmCommand = new MvxCommand(Confirm);
-            PictureSelectedCommand = new MvxCommand(PictureSelected);
+            PictureSelectedCommand = new MvxCommand<AuthPicture>(PictureSelected);
         }
 
         public IMvxCommand ConfirmCommand { get; private set; }
@@ -75,9 +77,11 @@ namespace Zzz.Core.ViewModels
             // Do something.
         }
 
-        private async void PictureSelected()
+        private async void PictureSelected(AuthPicture authPicture)
         {
-            // Do something.
+            if (_selectedAuthPictures == null) _selectedAuthPictures = new List<AuthPicture>();
+
+            _selectedAuthPictures.Add(authPicture);
         }
     }
 }
