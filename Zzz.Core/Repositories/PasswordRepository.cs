@@ -141,5 +141,17 @@ namespace Zzz.Core.Repositories
 
             return await Task.FromResult(masterSecret);
         }
+
+        /// <summary>
+        /// Get all pictures used for the picture authentication.
+        /// </summary>
+        /// <returns>All authentication pictures</returns>
+        public async Task<List<AuthPicture>> GetAllAuthPictures()
+        {
+            List<AuthPictureOrm> allAuthPictureOrms = dbHelper.GetAllAuthPictures();
+            List<AuthPicture> result = allAuthPictureOrms.Map<List<AuthPictureOrm>, List<AuthPicture>>();
+
+            return await Task.FromResult(result);
+        }
     }
 }

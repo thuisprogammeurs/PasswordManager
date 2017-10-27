@@ -25,5 +25,7 @@ namespace Zzz.Core.Contracts.Services
         Task<Group> SaveGroup(Group group);
 
         Task<Group> DeleteGroup(Group group);
+
+        Task<List<AuthPicture>> GetAllAuthPictures();
     }
 }

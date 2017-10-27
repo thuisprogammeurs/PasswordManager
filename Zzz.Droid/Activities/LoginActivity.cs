@@ -1,4 +1,3 @@
-
 using Android.App;
 using Android.OS;
 using Android.Content.PM;
@@ -7,7 +6,7 @@ using Zzz.Core.ViewModels;
 
 namespace Zzz.Droid.Activities
 {
-    [Activity(Label = "Main Activity"
+    [Activity(Label = "Login Activity"
         , Theme = "@style/AppTheme.Login"
         , LaunchMode = LaunchMode.SingleTop
         , ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize

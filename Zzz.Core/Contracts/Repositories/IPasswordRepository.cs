@@ -31,5 +31,7 @@ namespace Zzz.Core.Contracts.Repositories
         MasterSecret GetMasterSecret(string name);
 
         Task<MasterSecret> SaveMasterSecret(MasterSecret masterSecret);
+
+        Task<List<AuthPicture>> GetAllAuthPictures();
     }
 }

@@ -119,6 +119,12 @@
     <Reference Include="MvvmCross.Platform.Droid, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Platform.5.1.0\lib\MonoAndroid\MvvmCross.Platform.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.Fingerprint, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\MonoAndroid\MvvmCross.Plugins.Fingerprint.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Fingerprint.Droid, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\MonoAndroid\MvvmCross.Plugins.Fingerprint.Droid.dll</HintPath>
+    </Reference>
     <Reference Include="MvvmCross.Plugins.Messenger, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Plugin.Messenger.4.4.0\lib\MonoAndroid\MvvmCross.Plugins.Messenger.dll</HintPath>
     </Reference>
@@ -142,6 +148,15 @@
     </Reference>
     <Reference Include="PInvoke.Windows.Core, Version=0.3.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
       <HintPath>..\packages\PInvoke.Windows.Core.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Windows.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\MonoAndroid\Plugin.Fingerprint.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint.Abstractions, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\MonoAndroid\Plugin.Fingerprint.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint.Android.Samsung, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\MonoAndroid\Plugin.Fingerprint.Android.Samsung.dll</HintPath>
     </Reference>
     <Reference Include="Realm, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Realm.Database.1.2.0\lib\netstandard1.4\Realm.dll</HintPath>
@@ -228,9 +243,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\AuthWizardActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\OverviewListAdapter.cs" />
+    <Compile Include="Bootstrap\FingerprintPluginBootstrap.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Bootstrap\UserInteractionPluginBootstrap.cs" />
     <Compile Include="Converters\MenuItemToTextColorConverter.cs" />
@@ -250,6 +267,7 @@
     <Compile Include="Views\PasswordDetailFragment.cs" />
     <Compile Include="Views\PasswordGeneratorFragment.cs" />
     <Compile Include="Views\PasswordOverviewFragment.cs" />
+    <Compile Include="Views\PictureAuthFragment.cs" />
     <Compile Include="Views\SearchPasswordFragment.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +337,18 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\menu\toolbar_menu_edit_only.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AuthWizardView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SelectAuthMethodView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PictureAuthView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\GridViewItemTemplate.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -568,6 +598,60 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\group_icon.png" />
     <AndroidResource Include="Resources\drawable\loginscreen_icon.png" />
     <AndroidResource Include="Resources\drawable\navigation_header_icon.png" />
+    <AndroidResource Include="Resources\drawable\auth_classic.png" />
+    <AndroidResource Include="Resources\drawable\auth_picture.png" />
+    <AndroidResource Include="Resources\drawable\aircraft.png" />
+    <AndroidResource Include="Resources\drawable\american_football.png" />
+    <AndroidResource Include="Resources\drawable\apple.png" />
+    <AndroidResource Include="Resources\drawable\banana.png" />
+    <AndroidResource Include="Resources\drawable\baseball.png" />
+    <AndroidResource Include="Resources\drawable\basketball.png" />
+    <AndroidResource Include="Resources\drawable\bigben.png" />
+    <AndroidResource Include="Resources\drawable\bull.png" />
+    <AndroidResource Include="Resources\drawable\camera.png" />
+    <AndroidResource Include="Resources\drawable\champagne.png" />
+    <AndroidResource Include="Resources\drawable\cherry.png" />
+    <AndroidResource Include="Resources\drawable\coconut.png" />
+    <AndroidResource Include="Resources\drawable\coffee.png" />
+    <AndroidResource Include="Resources\drawable\colosseum.png" />
+    <AndroidResource Include="Resources\drawable\christmass_tree.png" />
+    <AndroidResource Include="Resources\drawable\crown.png" />
+    <AndroidResource Include="Resources\drawable\diamond.png" />
+    <AndroidResource Include="Resources\drawable\egypt.png" />
+    <AndroidResource Include="Resources\drawable\eiffel.png" />
+    <AndroidResource Include="Resources\drawable\firecracker.png" />
+    <AndroidResource Include="Resources\drawable\football.png" />
+    <AndroidResource Include="Resources\drawable\globe.png" />
+    <AndroidResource Include="Resources\drawable\hammer.png" />
+    <AndroidResource Include="Resources\drawable\hand_drill_machine.png" />
+    <AndroidResource Include="Resources\drawable\hand_saw.png" />
+    <AndroidResource Include="Resources\drawable\hourglass.png" />
+    <AndroidResource Include="Resources\drawable\ice_cream.png" />
+    <AndroidResource Include="Resources\drawable\kiwi.png" />
+    <AndroidResource Include="Resources\drawable\lamp.png" />
+    <AndroidResource Include="Resources\drawable\lego.png" />
+    <AndroidResource Include="Resources\drawable\liberty.png" />
+    <AndroidResource Include="Resources\drawable\moneyjar.png" />
+    <AndroidResource Include="Resources\drawable\palm_tree.png" />
+    <AndroidResource Include="Resources\drawable\piggybank.png" />
+    <AndroidResource Include="Resources\drawable\rainbow.png" />
+    <AndroidResource Include="Resources\drawable\raining.png" />
+    <AndroidResource Include="Resources\drawable\sailing_boat.png" />
+    <AndroidResource Include="Resources\drawable\santa.png" />
+    <AndroidResource Include="Resources\drawable\scale.png" />
+    <AndroidResource Include="Resources\drawable\screwdriver.png" />
+    <AndroidResource Include="Resources\drawable\snowman.png" />
+    <AndroidResource Include="Resources\drawable\sock.png" />
+    <AndroidResource Include="Resources\drawable\strawberry.png" />
+    <AndroidResource Include="Resources\drawable\suitcase.png" />
+    <AndroidResource Include="Resources\drawable\sunglasses.png" />
+    <AndroidResource Include="Resources\drawable\sunshine.png" />
+    <AndroidResource Include="Resources\drawable\tajmahal.png" />
+    <AndroidResource Include="Resources\drawable\tennis.png" />
+    <AndroidResource Include="Resources\drawable\volleyball.png" />
+    <AndroidResource Include="Resources\drawable\windmill.png" />
+    <AndroidResource Include="Resources\drawable\working_bench.png" />
+    <AndroidResource Include="Resources\drawable\wrench.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -44,22 +44,29 @@
     <Compile Include="Contracts\Services\ILoginService.cs" />
     <Compile Include="Contracts\Services\IPasswordDataService.cs" />
     <Compile Include="Contracts\Services\IPasswordGeneratorService.cs" />
+    <Compile Include="Contracts\ViewModels\IAuthWizardViewModel.cs" />
+    <Compile Include="Contracts\ViewModels\IFingerPrintViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IGroupDetailViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IGroupOverviewViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IMainViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IPasswordDetailViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IPasswordGeneratorViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IPasswordOverviewViewModel.cs" />
+    <Compile Include="Contracts\ViewModels\IPictureAuthViewModel.cs" />
     <Compile Include="Contracts\ViewModels\ISearchPasswordViewModel.cs" />
+    <Compile Include="Contracts\ViewModels\ISelectAuthMethodViewModel.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\ObservableDictionary.cs" />
     <Compile Include="Extensions\ValidationResultExtension.cs" />
     <Compile Include="Messages\PasswordCopiedMessage.cs" />
     <Compile Include="Models\App\MenuItem.cs" />
     <Compile Include="Models\App\SearchParameters.cs" />
+    <Compile Include="Models\AuthPicture.cs" />
+    <Compile Include="Models\AuthSetting.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\MasterSecret.cs" />
+    <Compile Include="Models\Orm\AuthPictureOrm.cs" />
     <Compile Include="Models\Orm\GroupOrm.cs" />
     <Compile Include="Models\Orm\MasterSecretOrm.cs" />
     <Compile Include="Models\Orm\PasswordGeneratorOrm.cs" />
@@ -81,7 +88,9 @@
     <Compile Include="Utility\MenuOption.cs" />
     <Compile Include="Utility\ResxTextProvider.cs" />
     <Compile Include="Utility\UrlConstants.cs" />
+    <Compile Include="ViewModels\AuthWizardViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\FingerPrintViewModel.cs" />
     <Compile Include="ViewModels\GroupDetailViewModel.cs" />
     <Compile Include="ViewModels\GroupOverviewViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -89,8 +98,10 @@
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\PasswordGeneratorViewModel.cs" />
     <Compile Include="ViewModels\PasswordOverviewViewModel.cs" />
+    <Compile Include="ViewModels\PictureAuthViewModel.cs" />
     <Compile Include="ViewModels\SearchPasswordViewModel.cs" />
     <Compile Include="ViewModels\PasswordDetailViewModel.cs" />
+    <Compile Include="ViewModels\SelectAuthMethodViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -116,6 +127,9 @@
     </Reference>
     <Reference Include="MvvmCross.Platform, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Platform.5.1.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Fingerprint, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\portable-net45+win8+wpa81+wp8\MvvmCross.Plugins.Fingerprint.dll</HintPath>
     </Reference>
     <Reference Include="MvvmCross.Plugins.Messenger, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Plugin.Messenger.4.4.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.Messenger.dll</HintPath>
@@ -146,6 +160,9 @@
     </Reference>
     <Reference Include="Plugin.Connectivity.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Plugin.Connectivity.1.0.2\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Fingerprint.Abstractions, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugins.Fingerprint.1.4.5\lib\portable-net45+win8+wpa81+wp8\Plugin.Fingerprint.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Realm, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Realm.Database.1.2.0\lib\portable-net45+sl5+wp8+wpa81+win8+monoandroid+Xamarin.iOS10+monotouch+Xamarin.Mac\Realm.dll</HintPath>

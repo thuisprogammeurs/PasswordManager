@@ -64,5 +64,10 @@ namespace Zzz.Core.Services.Data
         {
             return await _passwordRepository.DeleteGroup(group);
         }
+
+        public async Task<List<AuthPicture>> GetAllAuthPictures()
+        {
+            return await _passwordRepository.GetAllAuthPictures();
+        }
     }
 }

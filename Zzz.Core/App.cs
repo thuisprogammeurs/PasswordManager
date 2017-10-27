@@ -52,6 +52,7 @@ namespace Zzz.Core
             Mapper.Register<GroupOrm, Group>();
             Mapper.Register<PasswordGeneratorOrm, PasswordGenerator>();
             Mapper.Register<MasterSecretOrm, MasterSecret>();
+            Mapper.Register<AuthPictureOrm, AuthPicture>();
         }
     }
 }
