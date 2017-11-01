@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    android:overScrollMode="never"
+    android:background="@color/primary_dark">
+    <TextView
+        style="@style/LabelStyle"
+        android:id="@+id/txtWelcomeText"
+        android:textColor="@color/primary_light"
+        android:gravity="center"
+        android:text="Welcome to Zzz... password. Click on Next to start the configuration of your master secret." />
+    <Button
+        style="@style/ButtonStyle"
+        android:id="@+id/btnNext"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:text="Next"
+        local:MvxBind="Click SelectNextCommand" />
+</RelativeLayout>

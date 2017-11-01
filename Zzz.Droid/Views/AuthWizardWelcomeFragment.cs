@@ -9,22 +9,13 @@ using MvvmCross.Droid.Support.V4;
 namespace Zzz.Droid.Views
 {
     [MvxFragment(typeof(AuthWizardViewModel), Resource.Id.content_frame, true)]
-    [Register("zzz.droid.views.PictureAuthFragment")]
-    public class PictureAuthFragment : MvxFragment<PictureAuthViewModel>
+    [Register("zzz.droid.views.AuthWizardWelcomeFragment")]
+    public class AuthWizardWelcomeFragment : MvxFragment<AuthWizardWelcomeViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            //return base.OnCreateView(inflater, container, savedInstanceState);
             base.OnCreateView(inflater, container, savedInstanceState);
-            return this.BindingInflate(Resource.Layout.PictureAuthView, null);
+            return this.BindingInflate(Resource.Layout.AuthWizardWelcomeView, null);
         }
-
-        //protected override int FragmentId
-        //{
-        //    get
-        //    {
-        //        return Resource.Layout.PictureAuthView;
-        //    }
-        //}
     }
 }

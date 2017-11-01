@@ -13,11 +13,14 @@ namespace Zzz.Droid.Activities
         , Name = "zzz.droid.activities.AuthWizardActivity")]
     public class AuthWizardActivity : MvxCachingFragmentCompatActivity<AuthWizardViewModel>
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(savedInstanceState);
+            base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.AuthWizardView);
+
+            if (bundle == null)
+                ViewModel.StartAuthWizard();
         }
     }
 }

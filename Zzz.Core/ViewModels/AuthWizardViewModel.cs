@@ -20,33 +20,60 @@ namespace Zzz.Core.ViewModels
             // Init.
             currentWizardStep = WizardSteps.Intro;
 
-            NextStepCommand = new MvxCommand(MoveNext);
-            PreviousStepCommand = new MvxCommand(MovePrevious);
+            NextStepCommand = new MvxCommand(ShowWizard);
+            PreviousStepCommand = new MvxCommand(ShowWizard);
         }
 
         public IMvxCommand NextStepCommand { get; private set; }
 
         public IMvxCommand PreviousStepCommand { get; private set; }
 
-        private async void MoveNext()
+        public void StartAuthWizard()
         {
-            AuthSetting authSetting = new AuthSetting();
-            authSetting = await _navigationService.Navigate<PictureAuthViewModel, AuthSetting, AuthSetting>(authSetting);
-
-            if (authSetting != null)
-            {
-                currentWizardStep = WizardSteps.SelectAuthMethod;
-            }
+            ShowWizard();
         }
 
-        private async void MovePrevious()
+        private async void ShowWizard()
         {
             AuthSetting authSetting = new AuthSetting();
-            authSetting = await _navigationService.Navigate<SelectAuthMethodViewModel, AuthSetting, AuthSetting>(authSetting);
+            bool isCompleted = false;
 
-            if (authSetting != null)
+            while (isCompleted == false)
             {
-                currentWizardStep = WizardSteps.SelectAuthMethod;
+                switch (currentWizardStep)
+                {
+                    case WizardSteps.Intro:
+                        authSetting = await _navigationService.Navigate<AuthWizardWelcomeViewModel, AuthSetting, AuthSetting>(authSetting);
+                        if (authSetting.IsNext == true)
+                        {
+                            currentWizardStep = WizardSteps.SelectAuthMethod;
+                        }
+
+                        break;
+
+                    case WizardSteps.SelectAuthMethod:
+                        authSetting = await _navigationService.Navigate<SelectAuthMethodViewModel, AuthSetting, AuthSetting>(authSetting);
+                        if (authSetting.MainAuthentication == AuthOption.Classic)
+                        {
+                            currentWizardStep = WizardSteps.ClassicAuth;
+                        }
+                        else
+                        {
+                            currentWizardStep = WizardSteps.PictureAuth;
+                        }
+
+                        break;
+
+                    case WizardSteps.ClassicAuth:
+                        break;
+
+                    case WizardSteps.PictureAuth:
+                        authSetting = await _navigationService.Navigate<PictureAuthViewModel, AuthSetting, AuthSetting>(authSetting);
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
     }

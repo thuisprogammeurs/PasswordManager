@@ -1,33 +1,21 @@
-﻿using System;
-using Android.OS;
+﻿using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
-using Android.Support.V7.Widget;
 using Android.Views;
-using Android.Widget;
+using MvvmCross.Droid.Shared.Attributes;
 using MvvmCross.Binding.Droid.BindingContext;
-using MvvmCross.Droid.Support.V7.RecyclerView;
-using MvvmCross.Platform.WeakSubscription;
-using MvvmCross.Droid.Support.V4;
 using Zzz.Core.ViewModels;
+using MvvmCross.Droid.Support.V4;
 
 namespace Zzz.Droid.Views
 {
     [MvxFragment(typeof(AuthWizardViewModel), Resource.Id.content_frame, true)]
     [Register("zzz.droid.views.SelectAuthMethodFragment")]
-    public class SelectAuthMethodFragment : BaseFragment<SelectAuthMethodViewModel>
+    public class SelectAuthMethodFragment : MvxFragment<SelectAuthMethodViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return base.OnCreateView(inflater, container, savedInstanceState);
-        }
-
-        protected override int FragmentId
-        {
-            get
-            {
-                return Resource.Layout.GroupOverviewView;
-            }
+            base.OnCreateView(inflater, container, savedInstanceState);
+            return this.BindingInflate(Resource.Layout.SelectAuthMethodView, null);
         }
     }
 }
