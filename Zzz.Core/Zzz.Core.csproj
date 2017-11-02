@@ -46,6 +46,7 @@
     <Compile Include="Contracts\Services\IPasswordGeneratorService.cs" />
     <Compile Include="Contracts\ViewModels\IAuthWizardViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IAuthWizardWelcomeViewModel.cs" />
+    <Compile Include="Contracts\ViewModels\IClassicAuthViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IFingerPrintViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IGroupDetailViewModel.cs" />
     <Compile Include="Contracts\ViewModels\IGroupOverviewViewModel.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="ViewModels\AuthWizardViewModel.cs" />
     <Compile Include="ViewModels\AuthWizardWelcomeViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ClassicAuthViewModel.cs" />
     <Compile Include="ViewModels\FingerPrintViewModel.cs" />
     <Compile Include="ViewModels\GroupDetailViewModel.cs" />
     <Compile Include="ViewModels\GroupOverviewViewModel.cs" />

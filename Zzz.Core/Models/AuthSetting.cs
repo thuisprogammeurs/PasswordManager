@@ -6,9 +6,9 @@
 
         public AuthOption BackupAuthentication { get; set; }
 
-        public bool IsNext { get; set; }
+        public WizardSteps CurrentWizardStep { get; set; }
 
-        public bool IsPrevious { get; set; }
+        public bool IsOk { get; set; }
     }
 
     public enum AuthOption
@@ -18,4 +18,6 @@
         , FingerPrint
         , None
     }
+
+    public enum WizardSteps { Intro = 0, SelectAuthMethod, ClassicAuth, PictureAuth, FingerPrintAuth };
 }

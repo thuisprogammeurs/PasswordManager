@@ -17,6 +17,7 @@ namespace Zzz.Core.ViewModels
         private ObservableCollection<AuthPicture> _allPictures;
         private string _picturePassword;
         private List<AuthPicture> _selectedAuthPictures;
+        private AuthSetting _authSetting;
 
         public PictureAuthViewModel(IMvxMessenger messenger, IMvxNavigationService navigation, IPasswordDataService passwordDataService) : base(messenger, navigation)
         {
@@ -74,7 +75,17 @@ namespace Zzz.Core.ViewModels
 
         private async void Confirm()
         {
-            // Do something.
+            if (_authSetting == null)
+            {
+                _authSetting = new AuthSetting()
+                {
+                    MainAuthentication = AuthOption.Picture,
+                    IsOk = true,
+                    CurrentWizardStep = WizardSteps.PictureAuth
+                };
+            }
+
+            await Close(_authSetting);
         }
 
         private async void PictureSelected(AuthPicture authPicture)

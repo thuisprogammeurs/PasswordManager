@@ -8,6 +8,8 @@ namespace Zzz.Core.ViewModels
 {
     public class SelectAuthMethodViewModel : BaseViewModel<AuthSetting, AuthSetting>, ISelectAuthMethodViewModel
     {
+        private AuthSetting _authSetting;
+
         public SelectAuthMethodViewModel(IMvxMessenger messenger, IMvxNavigationService navigation) : base(messenger, navigation)
         {
             SelectClassicAuthCommand = new MvxCommand(SelectClassicAuth);
@@ -20,22 +22,32 @@ namespace Zzz.Core.ViewModels
 
         private async void SelectClassicAuth()
         {
-            AuthSetting authSetting = new AuthSetting()
+            if (_authSetting == null)
             {
-                MainAuthentication = AuthOption.Classic
-            };
+                _authSetting = new AuthSetting()
+                {
+                    MainAuthentication = AuthOption.Classic,
+                    IsOk = true,
+                    CurrentWizardStep = WizardSteps.SelectAuthMethod
+                };
+            }
 
-            await Close(authSetting);
+            await Close(_authSetting);
         }
 
         private async void SelectPictureAuth()
         {
-            AuthSetting authSetting = new AuthSetting()
+            if (_authSetting == null)
             {
-                MainAuthentication = AuthOption.Picture
-            };
+                _authSetting = new AuthSetting()
+                {
+                    MainAuthentication = AuthOption.Picture,
+                    IsOk = true,
+                    CurrentWizardStep = WizardSteps.SelectAuthMethod
+                };
+            }
 
-            await Close(authSetting);
+            await Close(_authSetting);
         }
     }
 }

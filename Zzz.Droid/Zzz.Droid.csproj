@@ -262,6 +262,7 @@
     <Compile Include="Utilities\MvxPanelPopToRootPresentationHint.cs" />
     <Compile Include="Views\AuthWizardWelcomeFragment.cs" />
     <Compile Include="Views\BaseFragment.cs" />
+    <Compile Include="Views\ClassicAuthFragment.cs" />
     <Compile Include="Views\GroupDetailFragment.cs" />
     <Compile Include="Views\GroupOverviewFragment.cs" />
     <Compile Include="Views\MenuFragment.cs" />
@@ -354,6 +355,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AuthWizardWelcomeView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ClassicAuthView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

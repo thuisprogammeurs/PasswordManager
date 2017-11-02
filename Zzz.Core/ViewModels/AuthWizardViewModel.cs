@@ -9,7 +9,7 @@ namespace Zzz.Core.ViewModels
     public class AuthWizardViewModel : BaseViewModel, IAuthWizardViewModel
     {
         private readonly IMvxNavigationService _navigationService;
-        private enum WizardSteps { Intro = 0, SelectAuthMethod, ClassicAuth, PictureAuth };
+        private enum WizardSteps { Intro = 0, SelectAuthMethod, ClassicAuth, PictureAuth, FingerPrintAuth };
         private WizardSteps currentWizardStep;
 
 
@@ -44,7 +44,7 @@ namespace Zzz.Core.ViewModels
                 {
                     case WizardSteps.Intro:
                         authSetting = await _navigationService.Navigate<AuthWizardWelcomeViewModel, AuthSetting, AuthSetting>(authSetting);
-                        if (authSetting.IsNext == true)
+                        if (authSetting.IsOk == true)
                         {
                             currentWizardStep = WizardSteps.SelectAuthMethod;
                         }
@@ -65,10 +65,29 @@ namespace Zzz.Core.ViewModels
                         break;
 
                     case WizardSteps.ClassicAuth:
+                        authSetting = await _navigationService.Navigate<ClassicAuthViewModel, AuthSetting, AuthSetting>(authSetting);
+                        if (authSetting.IsOk)
+                        {
+                            //currentWizardStep = WizardSteps.FingerPrintAuth;
+                            // Do something next.
+                        }
+                        else
+                        {
+                            currentWizardStep = WizardSteps.SelectAuthMethod;
+                        }
                         break;
 
                     case WizardSteps.PictureAuth:
                         authSetting = await _navigationService.Navigate<PictureAuthViewModel, AuthSetting, AuthSetting>(authSetting);
+                        if (authSetting.IsOk)
+                        {
+                            //currentWizardStep = WizardSteps.FingerPrintAuth;
+                            // Do something next.
+                        }
+                        else
+                        {
+                            currentWizardStep = WizardSteps.SelectAuthMethod;
+                        }
                         break;
 
                     default:

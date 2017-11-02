@@ -8,6 +8,8 @@ namespace Zzz.Core.ViewModels
 {
     public class AuthWizardWelcomeViewModel : BaseViewModel<AuthSetting, AuthSetting>, IAuthWizardViewModel
     {
+        private AuthSetting _authSetting;
+
         public AuthWizardWelcomeViewModel(IMvxMessenger messenger, IMvxNavigationService navigation) : base(messenger, navigation)
         {
             SelectNextCommand = new MvxCommand(SelectNext);
@@ -17,12 +19,16 @@ namespace Zzz.Core.ViewModels
 
         private async void SelectNext()
         {
-            AuthSetting authSetting = new AuthSetting()
+            if (_authSetting == null)
             {
-                IsNext = true
-            };
+                _authSetting = new AuthSetting()
+                {
+                    IsOk = true,
+                    CurrentWizardStep = WizardSteps.Intro
+                };
+            }
 
-            await Close(authSetting);
+            await Close(_authSetting);
         }
     }
 }
