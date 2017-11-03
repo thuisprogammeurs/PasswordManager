@@ -10,7 +10,7 @@ namespace Zzz.Droid.Views
 {
     [MvxFragment(typeof(AuthWizardViewModel), Resource.Id.content_frame, true)]
     [Register("zzz.droid.views.ClassicAuthFragment")]
-    public class ClassicAuthFragment : MvxFragment<PictureAuthViewModel>
+    public class ClassicAuthFragment : MvxFragment<ClassicAuthViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

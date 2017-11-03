@@ -67,6 +67,7 @@
       android:id="@+id/BtnCancel"
       android:layout_marginTop="10dp"
       android:layout_width="match_parent"
+      android:text="Cancel"
       local:MvxBind="Click CancelCommand" />
 
   </LinearLayout>

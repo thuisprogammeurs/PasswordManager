@@ -107,6 +107,7 @@ namespace Zzz.Core.ViewModels
                     _firstEntry = false;
                     _firstEntryPassword = Password;
 
+                    Password = string.Empty;
                     InitializeText();
                 }
             }
