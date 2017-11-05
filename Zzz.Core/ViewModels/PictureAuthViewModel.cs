@@ -16,6 +16,7 @@ namespace Zzz.Core.ViewModels
         private readonly IPasswordDataService _passwordDataService;
         private ObservableCollection<AuthPicture> _allPictures;
         private string _picturePassword;
+        private string _imageName;
         private List<AuthPicture> _selectedAuthPictures;
         private AuthSetting _authSetting;
 
@@ -28,11 +29,14 @@ namespace Zzz.Core.ViewModels
 
             ConfirmCommand = new MvxCommand(Confirm);
             PictureSelectedCommand = new MvxCommand<AuthPicture>(PictureSelected);
+            ReplayCommand = new MvxCommand(Replay);
         }
 
         public IMvxCommand ConfirmCommand { get; private set; }
 
         public IMvxCommand PictureSelectedCommand { get; private set; }
+
+        public IMvxCommand ReplayCommand { get; private set; }
 
         public ObservableCollection<AuthPicture> AllPictures
         {
@@ -51,6 +55,16 @@ namespace Zzz.Core.ViewModels
             {
                 _picturePassword = value;
                 RaisePropertyChanged(() => PicturePassword);
+            }
+        }
+
+        public string ImageName
+        {
+            get { return _imageName; }
+            set
+            {
+                _imageName = value;
+                RaisePropertyChanged(() => ImageName);
             }
         }
 
@@ -93,6 +107,19 @@ namespace Zzz.Core.ViewModels
             if (_selectedAuthPictures == null) _selectedAuthPictures = new List<AuthPicture>();
 
             _selectedAuthPictures.Add(authPicture);
+        }
+
+        private async void Replay()
+        {
+            if (_selectedAuthPictures != null)
+            {
+                foreach(AuthPicture picture in _selectedAuthPictures)
+                {
+                    ImageName = picture.IconName;
+                    await Task.Delay(1000);
+                    ImageName = string.Empty;
+                }
+            }
         }
     }
 }

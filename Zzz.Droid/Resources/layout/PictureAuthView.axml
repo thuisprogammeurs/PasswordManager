@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:local="http://schemas.android.com/apk/res-auto"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:orientation="vertical">
-  
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
   <LinearLayout
-    android:layout_width="fill_parent"
+    android:id="@+id/imagePanel"
+    android:layout_above="@id/buttonPanel"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:id="@+id/buttonPanel"
     android:orientation="horizontal">
-    <TextView
-      style="@style/LabelStyle"
-      android:id="@+id/textView1"
-      android:textColor="@color/primary_light"
-      android:gravity="center"
-      local:MvxBind="Text PicturePassword" />
+
+    <ImageView
+      style="@style/ListViewIconStyle"
+      android:id="@+id/itemIcon"
+      local:MvxBind="DrawableName ImageName" />
+
     <Button
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:layout_height="wrap_content"
+      android:text="Replay"
+      local:MvxBind="Click ReplayCommand" />
+  </LinearLayout>
+    
+  <LinearLayout
+    android:id="@+id/buttonPanel"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:layout_height="wrap_content"
+      android:text="Cancel"
+      local:MvxBind="Click CancelCommand" />
+
+    <Button
+      android:layout_width="0dp"
+      android:layout_weight="1"
       android:layout_height="wrap_content"
       android:text="Confirm"
       local:MvxBind="Click ConfirmCommand" />
   </LinearLayout>
-  
+
   <Mvx.MvxGridView
     android:id="@+id/gridViewPicture"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_above="@id/imagePanel"
     android:numColumns="4"
     android:verticalSpacing="4dp"
     android:horizontalSpacing="4dp"
@@ -35,5 +60,5 @@
     android:fastScrollEnabled="true"
     local:MvxBind="ItemsSource AllPictures; ItemClick PictureSelectedCommand"
     local:MvxItemTemplate="@layout/gridviewitemtemplate" />
-  
+
 </RelativeLayout>
