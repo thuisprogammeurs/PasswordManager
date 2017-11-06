@@ -19,5 +19,5 @@
         , None
     }
 
-    public enum WizardSteps { Intro = 0, SelectAuthMethod, ClassicAuth, PictureAuth, FingerPrintAuth };
+    public enum WizardSteps { Intro = 0, SelectAuthMethod, ClassicAuth, PictureAuth, UseFingerPrint, FingerPrintAuth };
 }

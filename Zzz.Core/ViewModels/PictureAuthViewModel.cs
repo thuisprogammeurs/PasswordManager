@@ -16,7 +16,6 @@ namespace Zzz.Core.ViewModels
         private readonly IPasswordDataService _passwordDataService;
         private ObservableCollection<AuthPicture> _allPictures;
         private string _picturePassword;
-        private string _imageName;
         private List<AuthPicture> _selectedAuthPictures;
         private AuthSetting _authSetting;
 
@@ -58,6 +57,7 @@ namespace Zzz.Core.ViewModels
             }
         }
 
+        private string _imageName;
         public string ImageName
         {
             get { return _imageName; }
@@ -65,6 +65,17 @@ namespace Zzz.Core.ViewModels
             {
                 _imageName = value;
                 RaisePropertyChanged(() => ImageName);
+            }
+        }
+
+        private string _imageOrder;
+        public string ImageOrder
+        {
+            get { return _imageOrder; }
+            set
+            {
+                _imageOrder = value;
+                RaisePropertyChanged(() => ImageOrder);
             }
         }
 
@@ -113,11 +124,28 @@ namespace Zzz.Core.ViewModels
         {
             if (_selectedAuthPictures != null)
             {
+                int counter = 1;
                 foreach(AuthPicture picture in _selectedAuthPictures)
                 {
+                    //if (picture.IconName == ImageName)
+                    //{
+                    //    ImageName = string.Empty;
+                    //    await Task.Delay(200);
+                    //    ImageName = picture.IconName;
+                    //}
+                    //else
+                    //{
+                    //    ImageName = picture.IconName;
+                    //    await Task.Delay(1000);
+                    //    ImageName = string.Empty;
+                    //}
+
                     ImageName = picture.IconName;
+                    ImageOrder = counter.ToString();
                     await Task.Delay(1000);
+                    counter++;
                     ImageName = string.Empty;
+                    ImageOrder = string.Empty;
                 }
             }
         }

@@ -94,6 +94,7 @@
     <Compile Include="ViewModels\AuthWizardWelcomeViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ClassicAuthViewModel.cs" />
+    <Compile Include="ViewModels\FingerPrintQuestionViewModel.cs" />
     <Compile Include="ViewModels\FingerPrintViewModel.cs" />
     <Compile Include="ViewModels\GroupDetailViewModel.cs" />
     <Compile Include="ViewModels\GroupOverviewViewModel.cs" />

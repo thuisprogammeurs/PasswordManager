@@ -1,6 +1,9 @@
 ﻿using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
+using Plugin.Fingerprint.Abstractions;
+using System.Threading.Tasks;
 using Zzz.Core.Contracts.ViewModels;
 using Zzz.Core.Models;
 
@@ -9,7 +12,7 @@ namespace Zzz.Core.ViewModels
     public class AuthWizardViewModel : BaseViewModel, IAuthWizardViewModel
     {
         private readonly IMvxNavigationService _navigationService;
-        private enum WizardSteps { Intro = 0, SelectAuthMethod, ClassicAuth, PictureAuth, FingerPrintAuth };
+        private enum WizardSteps { Intro = 0, SelectAuthMethod, ClassicAuth, PictureAuth, UseFingerPrint, FingerPrintAuth };
         private WizardSteps currentWizardStep;
 
 
@@ -37,6 +40,8 @@ namespace Zzz.Core.ViewModels
         {
             AuthSetting authSetting = new AuthSetting();
             bool isCompleted = false;
+
+            bool isFingerPrintAvailable = await IsFingerPrintAvailable();
 
             while (isCompleted == false)
             {
@@ -68,6 +73,10 @@ namespace Zzz.Core.ViewModels
                         authSetting = await _navigationService.Navigate<ClassicAuthViewModel, AuthSetting, AuthSetting>(authSetting);
                         if (authSetting.IsOk)
                         {
+                            if (isFingerPrintAvailable)
+                            {
+                                currentWizardStep = WizardSteps.UseFingerPrint;
+                            }
                             //currentWizardStep = WizardSteps.FingerPrintAuth;
                             // Do something next.
                         }
@@ -81,6 +90,10 @@ namespace Zzz.Core.ViewModels
                         authSetting = await _navigationService.Navigate<PictureAuthViewModel, AuthSetting, AuthSetting>(authSetting);
                         if (authSetting.IsOk)
                         {
+                            if (isFingerPrintAvailable)
+                            {
+                                currentWizardStep = WizardSteps.UseFingerPrint;
+                            }
                             //currentWizardStep = WizardSteps.FingerPrintAuth;
                             // Do something next.
                         }
@@ -90,10 +103,38 @@ namespace Zzz.Core.ViewModels
                         }
                         break;
 
+                    case WizardSteps.UseFingerPrint:
+                        authSetting = await _navigationService.Navigate<FingerPrintQuestionViewModel, AuthSetting, AuthSetting>(authSetting);
+                        if (authSetting.IsOk)
+                        {
+                            //currentWizardStep = WizardSteps.FingerPrintAuth;
+                            // Do something next.
+                        }
+                        else
+                        {
+                            // Complete the authentication wizard.
+                        }
+                        break;
+
                     default:
                         break;
                 }
             }
+        }
+
+        private async Task<bool> IsFingerPrintAvailable()
+        {
+            var result = false;
+
+            var fpService = Mvx.Resolve<IFingerprint>();
+            var availabilityResult = await fpService.GetAvailabilityAsync();
+
+            if (availabilityResult == FingerprintAvailability.Available)
+            {
+                result = true;
+            }
+
+            return await Task.FromResult(result);
         }
     }
 }
