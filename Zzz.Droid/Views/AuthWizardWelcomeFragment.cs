@@ -5,6 +5,7 @@ using MvvmCross.Droid.Shared.Attributes;
 using MvvmCross.Binding.Droid.BindingContext;
 using Zzz.Core.ViewModels;
 using MvvmCross.Droid.Support.V4;
+using Plugin.Fingerprint;
 
 namespace Zzz.Droid.Views
 {
@@ -15,6 +16,9 @@ namespace Zzz.Droid.Views
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
+
+            CrossFingerprint.SetDialogFragmentType<FingerPrintDialog>();
+
             return this.BindingInflate(Resource.Layout.AuthWizardWelcomeView, null);
         }
     }

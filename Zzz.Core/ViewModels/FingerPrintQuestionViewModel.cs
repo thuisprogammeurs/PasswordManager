@@ -1,6 +1,9 @@
 ﻿using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
+using Plugin.Fingerprint.Abstractions;
+using System.Threading.Tasks;
 using Zzz.Core.Contracts.ViewModels;
 using Zzz.Core.Models;
 
@@ -21,13 +24,37 @@ namespace Zzz.Core.ViewModels
 
         private async void SelectYes()
         {
-            if (_authSetting == null)
+            var fpService = Mvx.Resolve<IFingerprint>(); // or use dependency injection and inject IFingerprint
+
+            var dialogConfig = new AuthenticationRequestConfiguration("Prove you have Zzz fingers!")
+            { // all optional
+                CancelTitle = "Cancel",
+                FallbackTitle = null,
+                AllowAlternativeAuthentication = false
+            };
+
+            var result = await fpService.AuthenticateAsync(dialogConfig);
+            if (result.Authenticated)
             {
-                _authSetting = new AuthSetting()
+                if (_authSetting == null)
                 {
-                    IsOk = true,
-                    CurrentWizardStep = WizardSteps.UseFingerPrint
-                };
+                    _authSetting = new AuthSetting()
+                    {
+                        IsOk = true,
+                        CurrentWizardStep = WizardSteps.UseFingerPrint
+                    };
+                }
+            }
+            else
+            {
+                if (_authSetting == null)
+                {
+                    _authSetting = new AuthSetting()
+                    {
+                        IsOk = false,
+                        CurrentWizardStep = WizardSteps.UseFingerPrint
+                    };
+                }
             }
 
             await Close(_authSetting);

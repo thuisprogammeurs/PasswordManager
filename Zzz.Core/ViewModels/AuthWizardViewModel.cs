@@ -116,6 +116,19 @@ namespace Zzz.Core.ViewModels
                         }
                         break;
 
+                    case WizardSteps.FingerPrintAuth:
+                        //authSetting = await _navigationService.Navigate<FingerPrintQuestionViewModel, AuthSetting, AuthSetting>(authSetting);
+                        //if (authSetting.IsOk)
+                        //{
+                        //    //currentWizardStep = WizardSteps.FingerPrintAuth;
+                        //    // Do something next.
+                        //}
+                        //else
+                        //{
+                        //    // Complete the authentication wizard.
+                        //}
+                        break;
+
                     default:
                         break;
                 }
